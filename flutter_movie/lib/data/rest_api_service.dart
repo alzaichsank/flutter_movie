@@ -9,8 +9,6 @@ part 'rest_api_service.g.dart';
 abstract class RestApiService {
   factory RestApiService(Dio dio) = _RestApiService;
 
-  //region account
-
   @GET("search/movie")
   Future<ListResponse> searchMovie(
       {@Query("api_key") String apiKey,
