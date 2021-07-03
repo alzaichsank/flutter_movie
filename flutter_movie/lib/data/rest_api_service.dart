@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:flutter_movie/commons/build_config.dart';
-import 'package:flutter_movie/data/handler/list_response.dart';
+import 'package:flutter_movie/data/model/list_response.dart';
 import 'package:retrofit/http.dart';
 
 part 'rest_api_service.g.dart';
@@ -11,7 +11,9 @@ abstract class RestApiService {
 
   //region account
 
-  @GET("app/v1/all-activities")
+  @GET("search/movie")
   Future<ListResponse> searchMovie(
-      {@Query("query") String query, @Query("page") String page});
+      {@Query("api_key") String apiKey,
+      @Query("query") String query,
+      @Query("page") int page});
 }

@@ -17,13 +17,16 @@ class _RestApiService implements RestApiService {
   String baseUrl;
 
   @override
-  Future<ListResponse> searchMovie({query, page}) async {
+  Future<ListResponse> searchMovie({apiKey, query, page}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'query': query, r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'api_key': apiKey,
+      r'query': query,
+      r'page': page
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>(
-        'app/v1/all-activities',
+    final _result = await _dio.request<Map<String, dynamic>>('search/movie',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
