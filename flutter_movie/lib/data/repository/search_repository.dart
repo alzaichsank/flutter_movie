@@ -3,7 +3,7 @@ part of '../network_repository.dart';
 mixin _SearchRepository {
   RestApiService get _apiService;
 
-  Future<ApiResult<SearchResponse>> searchActivity(
+  Future<ApiResult<SearchResponse>> searchMovie(
       {String query, int page}) async {
     try {
       return await _apiService

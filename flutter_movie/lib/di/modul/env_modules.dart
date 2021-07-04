@@ -1,4 +1,4 @@
-import 'package:flutter_movie/commons/build_config.dart';
+import 'package:flutter_movie/commons/config/build_config.dart';
 import 'package:injectable/injectable.dart';
 
 @module

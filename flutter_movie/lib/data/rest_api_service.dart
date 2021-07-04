@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart' hide Headers;
-import 'package:flutter_movie/commons/build_config.dart';
+import 'package:flutter_movie/commons/config/build_config.dart';
 import 'package:flutter_movie/data/model/list_response.dart';
 import 'package:retrofit/http.dart';
 
