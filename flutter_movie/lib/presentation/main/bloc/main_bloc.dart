@@ -17,25 +17,21 @@ part 'main_state.dart';
 
 @Injectable()
 class MainBloc extends Bloc<MainEvent, MainState> {
-  MainBloc(
-    this._searchUseCase,
-  ) : super(const MainState());
+  MainBloc(this._searchUseCase,) : super(const MainState());
 
   final SearchUseCase _searchUseCase;
   final List<ItemType> _events = [];
   SearchQuery _searchQuery = SearchQuery(currentPage: 1);
   int _page = 1;
   int _lastPage = 1;
+  bool _isLoadMore = false;
 
   @override
-  Stream<MainState> mapEventToState(
-    MainEvent event,
-  ) async* {
+  Stream<MainState> mapEventToState(MainEvent event,) async* {
     if (event is MainReady) {
       yield state.copyWith(state: SearchBlocState.pure());
     } else if (event is MainQueryChanged) {
-      _searchQuery =
-          _searchQuery.copyWith(keyword: event.query, currentPage: _page);
+      _searchQuery = _searchQuery.copyWith(keyword: event.query);
     } else if (event is MainSubmitted) {
       _page = 1;
       _searchQuery =
@@ -72,7 +68,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         return state.copyWith(state: SearchBlocState.failedLoadMovies());
       }
     }
-
     yield state.copyWith(state: SearchBlocState.showMoviesLoading());
     final response = await _searchUseCase.execute(_searchQuery);
     yield* response.when(
@@ -88,6 +83,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   Stream<MainState> _mapEventToMainLoadMoreEvent() async* {
     yield _moreLoad();
     if (_canGoToNextPage()) {
+      _isLoadMore = true;
+      _searchQuery = _searchQuery.copyWith(currentPage: _page);
       yield* _mapEventToMainEvent();
     }
   }

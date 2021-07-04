@@ -65,7 +65,6 @@ mixin _$SearchBlocState {
     @required TResult noInternetError(),
     @required TResult emptyContent(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult pure(),
@@ -77,7 +76,6 @@ mixin _$SearchBlocState {
     TResult emptyContent(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult pure(PureSearch value),
@@ -88,7 +86,6 @@ mixin _$SearchBlocState {
     @required TResult noInternetError(NoInternetError value),
     @required TResult emptyContent(EmptyContent value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult pure(PureSearch value),
@@ -115,7 +112,6 @@ class _$SearchBlocStateCopyWithImpl<$Res>
   _$SearchBlocStateCopyWithImpl(this._value, this._then);
 
   final SearchBlocState _value;
-
   // ignore: unused_field
   final $Res Function(SearchBlocState) _then;
 }

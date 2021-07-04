@@ -46,6 +46,10 @@ class SearchMovie extends ItemType {
       json == null ? SearchMovie() : _$SearchMovieFromJson(json);
 
   Map<String, dynamic> toJson() => _$SearchMovieToJson(this);
+
+  static empty() {
+    return SearchMovie();
+  }
 }
 
 class SearchMoviesLoading extends ItemType {}

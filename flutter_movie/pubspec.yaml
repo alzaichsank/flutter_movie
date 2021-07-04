@@ -45,6 +45,7 @@ dependencies:
   connectivity: ^2.0.2
   fluttertoast: ^7.1.6
   flutter_advanced_networkimage: 0.7.0
+  percent_indicator: ^2.1.7+2
 
 dependency_overrides:
   analyzer: '0.41.1'

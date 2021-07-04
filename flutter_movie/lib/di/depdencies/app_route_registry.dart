@@ -1,6 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_movie/domain/entity/result/search_movie.dart';
+import 'package:flutter_movie/presentation/detail/detail.dart';
 import 'package:flutter_movie/presentation/main/main.dart';
 import 'package:flutter_movie/presentation/splash/splash.dart';
 
@@ -28,12 +30,12 @@ class AppRouteRegistry {
       return MainPage();
     }));
     //
-    // router.define(InternalRoute.EVENT_ROUTE.eventBooking, handler: Handler(
-    //     handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    //   final ActivityDetail actDetail =
-    //       context.settings.arguments ?? ActivityDetail.empty();
-    //   return ScheduleAndBookingPage(detail: actDetail);
-    // }));
+    router.define(InternalRoute.DETAIL, handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+      final SearchMovie searchMovie =
+          context.settings.arguments ?? SearchMovie.empty();
+      return DetailPage(searchMovie: searchMovie);
+    }));
   }
 //endregion
 }
