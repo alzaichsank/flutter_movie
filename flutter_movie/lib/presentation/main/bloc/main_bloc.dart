@@ -17,7 +17,9 @@ part 'main_state.dart';
 
 @Injectable()
 class MainBloc extends Bloc<MainEvent, MainState> {
-  MainBloc(this._searchUseCase,) : super(const MainState());
+  MainBloc(
+    this._searchUseCase,
+  ) : super(const MainState());
 
   final SearchUseCase _searchUseCase;
   final List<ItemType> _events = [];
@@ -26,13 +28,18 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   int _lastPage = 1;
 
   @override
-  Stream<MainState> mapEventToState(MainEvent event,) async* {
+  Stream<MainState> mapEventToState(
+    MainEvent event,
+  ) async* {
     if (event is MainReady) {
       yield state.copyWith(state: SearchBlocState.pure());
     } else if (event is MainQueryChanged) {
       _searchQuery =
           _searchQuery.copyWith(keyword: event.query, currentPage: _page);
     } else if (event is MainSubmitted) {
+      _page = 1;
+      _searchQuery =
+          _searchQuery.copyWith(keyword: event.query, currentPage: _page);
       _events.clear();
       yield* _mapEventToMainEvent();
     } else if (event is MainLoadMore) {
@@ -76,11 +83,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         yield _onFailed(error);
       },
     );
-  }
-
-  Stream<MainState> _mapEventToFirstLoadEvent() async* {
-    yield state.copyWith(state: SearchBlocState.showMoviesLoading());
-    yield* _mapEventToMainEvent();
   }
 
   Stream<MainState> _mapEventToMainLoadMoreEvent() async* {

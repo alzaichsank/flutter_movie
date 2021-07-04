@@ -115,18 +115,20 @@ class _MainBodyState extends State<_MainBody> {
   }
 
   Widget _buildNegativeState() {
-    return Column(children: <Widget>[
-      ErrorManifest.errorNotFound(),
-      Text(
-        "Sorry not found",
-        textAlign: TextAlign.left,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStylesManifest.textFormFieldSemiBold.copyWith(
-            color: HexColor.toColor(ColorManifest.HEADER_TEXT_COLOR),
-            fontSize: DimensionsManifest.FONT_REGULAR_5),
-      )
-    ]);
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ErrorManifest.errorNotFound(),
+            Text(
+              "Sorry not found",
+              textAlign: TextAlign.left,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStylesManifest.textFormFieldSemiBold.copyWith(
+                  color: HexColor.toColor(ColorManifest.HEADER_TEXT_COLOR),
+                  fontSize: DimensionsManifest.FONT_REGULAR_5),
+            )
+          ]);
   }
 
   Widget _buildLoadingState(

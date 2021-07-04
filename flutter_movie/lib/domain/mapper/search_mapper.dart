@@ -11,7 +11,8 @@ class SearchMapper {
           .map(
             (SearchData searchData) => Domain.SearchMovie(
               id: searchData.id,
-              image: BuildConfig.BASE_PATH_IMAGE + searchData.image,
+              image: BuildConfig.BASE_PATH_IMAGE +
+                  "${(searchData.image != null ? searchData.image : " ")}",
               overview: searchData.overview,
               releaseDate: searchData.releaseDate,
               title: searchData.title,
