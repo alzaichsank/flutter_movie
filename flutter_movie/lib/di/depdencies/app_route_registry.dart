@@ -1,6 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_movie/presentation/main/main.dart';
+import 'package:flutter_movie/presentation/splash/splash.dart';
 
 class AppRouteRegistry {
   final FluroRouter router;
@@ -14,21 +16,17 @@ class AppRouteRegistry {
 
   //region initialization
   _initIntro() {
-    // router.define(IntroRoute.SPLASH, handler: Handler(
-    //     handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    //   return SplashPage(
-    //     useLoading: useLoading,
-    //     clearCache: clearCache,
-    //   );
-    // }));
+    router.define(IntroRoute.SPLASH, handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+      return SplashPage();
+    }));
   }
 
   _initInternal() {
-    // router.define(InternalRoute.DASHBOARD, handler: Handler(
-    //     handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    //   final index = Uri.decodeComponent(params['index']?.first ?? "0");
-    //   return DashboardPage(indexStart: index);
-    // }));
+    router.define(InternalRoute.MAIN, handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+      return MainPage();
+    }));
     //
     // router.define(InternalRoute.EVENT_ROUTE.eventBooking, handler: Handler(
     //     handlerFunc: (BuildContext context, Map<String, dynamic> params) {

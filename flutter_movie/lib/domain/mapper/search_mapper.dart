@@ -1,3 +1,4 @@
+import 'package:flutter_movie/commons/config/build_config.dart';
 import 'package:flutter_movie/data/model/search/search_response.dart';
 import 'package:flutter_movie/domain/entity/result/search_movie.dart' as Domain;
 import 'package:injectable/injectable.dart';
@@ -10,7 +11,7 @@ class SearchMapper {
           .map(
             (SearchData searchData) => Domain.SearchMovie(
               id: searchData.id,
-              image: searchData.image,
+              image: BuildConfig.BASE_PATH_IMAGE + searchData.image,
               overview: searchData.overview,
               releaseDate: searchData.releaseDate,
               title: searchData.title,

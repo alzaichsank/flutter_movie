@@ -9,7 +9,7 @@ part of 'rest_api_service.dart';
 class _RestApiService implements RestApiService {
   _RestApiService(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    baseUrl ??= 'http://http://api.themoviedb.org/3/';
+    baseUrl ??= 'http://api.themoviedb.org/3/';
   }
 
   final Dio _dio;

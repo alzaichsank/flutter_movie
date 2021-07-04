@@ -23,11 +23,8 @@ class SearchUseCase extends BaseUseCase<SearchQuery,
         query: params.keyword, page: params.currentPage);
     return apiCall.when(
       success: (response) => ApiResult.success(
-        data: Pair(
-          _searchMapper.transformActivityStore(response.data),
-          response?.totalPages ?? 1,
-        ),
-      ),
+          data: Pair(_searchMapper.transformActivityStore(response.data),
+              response.totalPages)),
       failure: (error) => ApiResult.failure(
         error: NetworkException.getDioException(error),
       ),
