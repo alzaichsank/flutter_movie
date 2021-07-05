@@ -44,7 +44,7 @@ Widget _buildItemRow(
       borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_25_ALL,
       child: Container(
         width: double.infinity,
-        height: DimensionsManifest.UNIT_20.h,
+        height: DimensionsManifest.UNIT_30.h,
         child: Material(
           color: HexColor.toColor(ColorManifest.WHITE_COLOR),
           child: InkWell(
