@@ -130,8 +130,8 @@ Widget _buildDetail(SearchMovie item) {
   Text _buildOverView() {
     return Text(
       item.overview,
-      textAlign: TextAlign.left,
       maxLines: 3,
+      textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,
       style: TextStylesManifest.textFormFieldSemiBold.copyWith(
           color: HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),

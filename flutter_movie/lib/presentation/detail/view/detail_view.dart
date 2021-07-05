@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_advanced_networkimage/provider.dart';
@@ -15,12 +16,14 @@ import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 import 'package:flutter_movie/presentation/common/view/background/background_stack.dart';
 import 'package:flutter_movie/presentation/common/view/hideable_glow_behavior.dart';
 import 'package:flutter_movie/presentation/common/view/loading.dart';
+import 'package:flutter_movie/presentation/common/widget/icon_text.dart';
 import 'package:flutter_movie/presentation/common/widget/regular_button.dart';
 import 'package:flutter_movie/presentation/common/widget/toolbar_holder.dart';
 import 'package:flutter_movie/presentation/detail/detail.dart';
 
-part 'content/details_toolbar.dart';
 part 'content/details_image_header.dart';
+
+part 'content/details_toolbar.dart';
 
 class DetailView extends StatefulWidget {
   DetailView({Key key}) : super(key: key);
@@ -57,8 +60,7 @@ class _DetailViewState extends State<DetailView> {
 BlocBuilder<DetailBloc, DetailState> _buildContainer() {
   return BlocBuilder<DetailBloc, DetailState>(
     builder: (context, state) {
-      if ((state.state is ShowDetailBlocScreen) &&
-          state.searchMovie != null) {
+      if ((state.state is ShowDetailBlocScreen) && state.searchMovie != null) {
         return Container(
           child: ScrollConfiguration(
             behavior: HideableGlowBehavior(),
@@ -69,7 +71,8 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: DimensionsManifest.UNIT_4.blockW),
-                    child: _ImageHeader(detail: state.searchMovie),
+                    child:
+                        Center(child: _ImageHeader(detail: state.searchMovie)),
                   ),
                   SizedBox(
                     height: DimensionsManifest.UNIT_2.blockH,
@@ -81,8 +84,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                       state.searchMovie.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style:
-                      TextStylesManifest.textFormFieldSemiBold.copyWith(
+                      style: TextStylesManifest.textFormFieldSemiBold.copyWith(
                         color: HexColor.toColor(ColorManifest.BLACK_COLOR),
                         fontSize: DimensionsManifest.FONT_REGULAR_3,
                       ),
@@ -90,6 +92,66 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                   ),
                   SizedBox(
                     height: DimensionsManifest.UNIT_1.blockH,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: DimensionsManifest.UNIT_4.blockW),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: IconText(
+                            fontSize: DimensionsManifest.FONT_REGULAR_8,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.left,
+                            maxLine: 1,
+                            isSoftWarp: false,
+                            isFlexible: true,
+                            buttonText: state.searchMovie.releaseDate,
+                            buttonTextColor:
+                                HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),
+                            leftIcon: Padding(
+                                padding: EdgeInsets.only(
+                                    right: DimensionsManifest.UNIT_2),
+                                child: Icon(CupertinoIcons.calendar_today)),
+                          ),
+                        ),
+                        Expanded(
+                          child: IconText(
+                            fontSize: DimensionsManifest.FONT_REGULAR_8,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.left,
+                            maxLine: 1,
+                            isSoftWarp: false,
+                            isFlexible: true,
+                            buttonText: "${state.searchMovie.voteAverage}",
+                            buttonTextColor:
+                                HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),
+                            leftIcon: Padding(
+                                padding: EdgeInsets.only(
+                                    right: DimensionsManifest.UNIT_2),
+                                child: Icon(CupertinoIcons.star,
+                                    color: Colors.amber)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: DimensionsManifest.UNIT_4.blockH,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: DimensionsManifest.UNIT_4.blockW),
+                    child: Text(
+                      state.searchMovie.overview,
+                      maxLines: 100,
+                      textAlign: TextAlign.justify,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStylesManifest.textFormFieldRegular.copyWith(
+                        color: HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),
+                        fontSize: DimensionsManifest.FONT_REGULAR_6,
+                      ),
+                    ),
                   ),
                 ],
               ),
