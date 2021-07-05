@@ -70,7 +70,7 @@ Container _buildImage(
   MainState state,
 ) {
   return Container(
-    margin: EdgeInsets.only(left: DimensionsManifest.UNIT_24),
+    margin: EdgeInsets.only(left: DimensionsManifest.UNIT_24,top: DimensionsManifest.UNIT_30),
     height: DimensionsManifest.UNIT_15.h,
     child: AspectRatio(
       aspectRatio: 1 / 1,
@@ -91,7 +91,7 @@ LayoutBuilder _buildImagePreview(String image) {
         child: TransitionToImage(
           width: DimensionsManifest.UNIT_90,
           height: DimensionsManifest.UNIT_90,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
           loadingWidgetBuilder: (_, __, ___) => Center(
             child: DoubleBounceLoading(
               color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
@@ -159,6 +159,7 @@ Widget _buildDetail(SearchMovie item) {
   }
 
   return Container(
+    margin: EdgeInsets.only(top : DimensionsManifest.UNIT_30),
     padding: EdgeInsets.only(
       left: DimensionsManifest.UNIT_16,
     ),

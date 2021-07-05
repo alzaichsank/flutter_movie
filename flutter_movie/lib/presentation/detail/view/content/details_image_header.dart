@@ -34,7 +34,7 @@ class _ImageHeader extends StatelessWidget {
                       child: TransitionToImage(
                         width: constraints.maxWidth,
                         height: constraints.maxHeight,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                         loadingWidgetBuilder: (_, __, ___) => Center(
                           child: DoubleBounceLoading(
                             color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
