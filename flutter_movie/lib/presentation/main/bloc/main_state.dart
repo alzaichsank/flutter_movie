@@ -9,7 +9,11 @@ class MainState extends Equatable {
   final SearchBlocState state;
   final List<ItemType> data;
 
-  MainState copyWith({SearchBlocState state, List<ItemType> data}) {
+  MainState copyWith({
+    SearchBlocState state,
+    List<ItemType> data,
+    bool hasReachedMax,
+  }) {
     return MainState(
       state: state ?? this.state,
       data: data ?? this.data,
@@ -17,5 +21,8 @@ class MainState extends Equatable {
   }
 
   @override
-  List<Object> get props => [state, data,];
+  List<Object> get props => [
+        state,
+        data,
+      ];
 }

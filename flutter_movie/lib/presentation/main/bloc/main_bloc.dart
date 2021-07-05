@@ -33,6 +33,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     } else if (event is MainQueryChanged) {
       _searchQuery = _searchQuery.copyWith(keyword: event.query);
     } else if (event is MainSubmitted) {
+      _isLoadMore = false;
       _page = 1;
       _searchQuery =
           _searchQuery.copyWith(keyword: event.query, currentPage: _page);
@@ -68,7 +69,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         return state.copyWith(state: SearchBlocState.failedLoadMovies());
       }
     }
-    yield state.copyWith(state: SearchBlocState.showMoviesLoading());
+    if(!_isLoadMore) {
+      yield state.copyWith(state: SearchBlocState.showMoviesLoading());
+    }
     final response = await _searchUseCase.execute(_searchQuery);
     yield* response.when(
       success: (Pair<List<SearchMovie>, int> data) async* {
@@ -86,6 +89,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       _isLoadMore = true;
       _searchQuery = _searchQuery.copyWith(currentPage: _page);
       yield* _mapEventToMainEvent();
+    }else{
+      _isLoadMore =false;
     }
   }
 

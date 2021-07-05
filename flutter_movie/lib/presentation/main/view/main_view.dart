@@ -19,6 +19,7 @@ import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 import 'package:flutter_movie/presentation/common/view/background/background_stack.dart';
 import 'package:flutter_movie/presentation/common/view/hideable_glow_behavior.dart';
 import 'package:flutter_movie/presentation/common/view/loading.dart';
+import 'package:flutter_movie/presentation/common/widget/bottom_loader.dart';
 import 'package:flutter_movie/presentation/common/widget/icon_text.dart';
 import 'package:flutter_movie/presentation/common/widget/text_field.dart';
 import 'package:flutter_movie/presentation/common/widget/toolbar_holder.dart';
