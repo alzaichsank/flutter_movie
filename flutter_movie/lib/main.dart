@@ -1,4 +1,3 @@
-import 'package:alice/alice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_movie/commons/config/build_config.dart';
@@ -36,7 +35,6 @@ class AppV2 extends StatefulWidget {
 }
 
 class _AppV2State extends State<AppV2> {
-  final _alice = Injector.locator<Alice>();
   final _route = Injector.locator<AppRouteRegistry>();
 
   @override
@@ -54,7 +52,6 @@ class _AppV2State extends State<AppV2> {
           darkTheme: ThemePicker.darkTheme,
           themeMode: appState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           debugShowCheckedModeBanner: BuildConfig.DEBUG,
-          navigatorKey: _alice.getNavigatorKey(),
           home: SplashPage(),
           onGenerateRoute: _route.router.generator,
         );

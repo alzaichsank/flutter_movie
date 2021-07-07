@@ -33,13 +33,13 @@ class ThemePick extends StatefulWidget {
 
   static ThemeData of(BuildContext context) {
     _ThemePick inherited =
-        (context.inheritFromWidgetOfExactType(_ThemePick) as _ThemePick);
+        context.dependOnInheritedWidgetOfExactType<_ThemePick>();
     return inherited.data.theme;
   }
 
   static ThemePickState instanceOf(BuildContext context) {
     _ThemePick inherited =
-        (context.inheritFromWidgetOfExactType(_ThemePick) as _ThemePick);
+        context.dependOnInheritedWidgetOfExactType<_ThemePick>();
     return inherited.data;
   }
 }

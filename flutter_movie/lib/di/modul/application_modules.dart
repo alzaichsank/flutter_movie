@@ -1,4 +1,3 @@
-import 'package:alice/alice.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter_movie/commons/network/connection_checker.dart';
 import 'package:flutter_movie/commons/helper/permission_helper.dart';
@@ -10,10 +9,6 @@ import 'package:injectable/injectable.dart';
 abstract class ApplicationModules {
   @LazySingleton()
   FluroRouter provideFluroRouter() => FluroRouter();
-
-  @LazySingleton()
-  Alice provideAlice(@Named("build_mode") bool shouldActive) =>
-      Alice(showNotification: shouldActive, showInspectorOnShake: shouldActive);
 
   @LazySingleton()
   AppRouteRegistry provideInternalRouter(FluroRouter router) =>

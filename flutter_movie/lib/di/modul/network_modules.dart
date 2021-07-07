@@ -1,4 +1,3 @@
-import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_movie/data/rest_api_service.dart';
@@ -15,12 +14,10 @@ abstract class NetworkModule {
   Dio provideDio(
       BaseOptions baseOptions,
       @Named("build_mode") bool shouldShowLogger,
-      DioLogger dioLogger,
-      Alice alice) {
+      DioLogger dioLogger) {
     final dio = Dio(baseOptions);
     dio.interceptors.add(DioAuthenticator(dio));
     if (shouldShowLogger) {
-      dio.interceptors.add(alice.getDioInterceptor());
       dio.interceptors.add(dioLogger);
     }
     return dio;
