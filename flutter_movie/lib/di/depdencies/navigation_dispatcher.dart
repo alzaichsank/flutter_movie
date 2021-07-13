@@ -1,6 +1,5 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_movie/data/model/search/search_response.dart';
 import 'package:flutter_movie/di/depdencies/app_route_registry.dart';
 import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 
