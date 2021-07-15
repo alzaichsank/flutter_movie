@@ -32,7 +32,7 @@ part 'content/main_row_item.dart';
 part 'content/main_toolbar.dart';
 
 class MainView extends StatefulWidget {
-  MainView({Key key}) : super(key: key);
+  MainView({Key? key}) : super(key: key);
 
   @override
   _MainViewState createState() => _MainViewState();

@@ -4,10 +4,10 @@ part 'error_response.g.dart';
 
 @JsonSerializable()
 class ErrorResponse {
-  @JsonKey(name: "status_code", nullable: true, defaultValue: 0)
-  int code;
-  @JsonKey(name: "status_message", nullable: true, defaultValue: "")
-  String message;
+  @JsonKey(name: "status_code",  defaultValue: 0)
+  int? code;
+  @JsonKey(name: "status_message", defaultValue: "")
+  String? message;
 
   ErrorResponse({this.code, this.message});
 

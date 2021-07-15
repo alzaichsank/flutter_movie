@@ -7,10 +7,10 @@ import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 import 'package:flutter_movie/presentation/detail/detail.dart';
 
 class DetailPage extends StatefulWidget {
-  final SearchMovie searchMovie;
+  final SearchMovie? searchMovie;
 
   DetailPage({
-    Key key,
+    Key? key,
     @required this.searchMovie,
   }) : super(key: key);
 

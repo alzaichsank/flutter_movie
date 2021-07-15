@@ -65,62 +65,63 @@ abstract class NetworkException with _$NetworkException {
       try {
         NetworkException networkExceptions;
         if (error is DioError) {
+          networkExceptions = NetworkException.noInternetConnection();
           switch (error.type) {
-            case DioErrorType.CANCEL:
+            case DioErrorType.cancel:
               networkExceptions = NetworkException.requestCancelled();
               break;
-            case DioErrorType.CONNECT_TIMEOUT:
+            case DioErrorType.connectTimeout:
               networkExceptions = NetworkException.connectionTimeout();
               break;
-            case DioErrorType.DEFAULT:
-              networkExceptions = NetworkException.noInternetConnection();
-              break;
-            case DioErrorType.RECEIVE_TIMEOUT:
+            case DioErrorType.receiveTimeout:
               networkExceptions = NetworkException.sendTimeout();
               break;
-            case DioErrorType.RESPONSE:
-              final serverCode = error.response.statusCode;
-              final errorResponse = ErrorResponse.fromJson(error.response.data);
+            case DioErrorType.response:
+              final serverCode = error.response!.statusCode;
+              final errorResponse = ErrorResponse.fromJson(error.response!.data);
               switch (serverCode) {
                 case 400:
                   networkExceptions = NetworkException.formValidationError(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 401:
                   networkExceptions = NetworkException.unauthorisedRequest(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 403:
                   networkExceptions = NetworkException.unauthorisedRequest(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 404:
                   networkExceptions = NetworkException.notFound(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 409:
                   networkExceptions = NetworkException.conflict(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 408:
                   networkExceptions = NetworkException.requestTimeout(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 500:
                   networkExceptions = NetworkException.internalServerError(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 case 503:
                   networkExceptions = NetworkException.serviceUnavailable(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
                   break;
                 default:
                   networkExceptions = NetworkException.defaultError(
-                      serverCode, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code, errorResponse.message);
               }
               break;
-            case DioErrorType.SEND_TIMEOUT:
+            case DioErrorType.sendTimeout:
               networkExceptions = NetworkException.sendTimeout();
+              break;
+            case DioErrorType.other:
+              networkExceptions = NetworkException.notImplemented();
               break;
           }
         } else if (error is SocketException) {
@@ -140,7 +141,7 @@ abstract class NetworkException with _$NetworkException {
       } else if (error is ErrorResponse) {
         return NetworkException.serverValidationError(error.message);
       } else if (error is Response) {
-        return NetworkException.serverValidationError(error.statusMessage);
+        return NetworkException.serverValidationError(error.statusMessage!);
       } else if (error is DioError) {
         return NetworkException.serverValidationError(error.message);
       } else if (error.toString().contains("is not a subtype of")) {
@@ -149,75 +150,5 @@ abstract class NetworkException with _$NetworkException {
         return NetworkException.unexpectedError();
       }
     }
-  }
-
-  static String getErrorMessage(NetworkException networkExceptions) {
-    var errorMessage = "Something wrong happens";
-    networkExceptions.when(
-      notImplemented: () {
-        errorMessage = "Not Implemented";
-      },
-      requestCancelled: () {
-        errorMessage = "Request Cancelled";
-      },
-      internalServerError: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Internal Server Error";
-      },
-      notFound: (int serverCode, int errorCode, String message) {
-        errorMessage = message;
-      },
-      serviceUnavailable: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Service unavailable";
-      },
-      methodNotAllowed: () {
-        errorMessage = "Method Allowed";
-      },
-      badRequest: () {
-        errorMessage = "Bad request";
-      },
-      unauthorisedRequest: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Unauthorised request";
-      },
-      serverValidationError: (String message) {
-        errorMessage = message ?? "Error server validation";
-      },
-      requestTimeout: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Connection request timeout";
-      },
-      noInternetConnection: () {
-        errorMessage = "No internet connection";
-      },
-      conflict: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Error due to a conflict";
-      },
-      sendTimeout: () {
-        errorMessage = "Send timeout in connection with API server";
-      },
-      unableToProcess: () {
-        errorMessage = "Unable to process the data";
-      },
-      defaultError: (int serverCode, int errorCode, String message) {
-        errorMessage = message;
-      },
-      formatException: () {
-        errorMessage = "Unexpected error occurred";
-      },
-      notAcceptable: () {
-        errorMessage = "Not acceptable";
-      },
-      connectionTimeout: () {
-        errorMessage = "Connection timeout";
-      },
-      unProcessableEntity: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Error unable process entity";
-      },
-      formValidationError: (int serverCode, int errorCode, String message) {
-        errorMessage = message ?? "Error form validation";
-      },
-      unexpectedError: () {
-        errorMessage = "Unexpected error occurred";
-      },
-    );
-    return errorMessage;
   }
 }

@@ -4,14 +4,14 @@ part 'list_response.g.dart';
 
 @JsonSerializable()
 class ListResponse {
-  @JsonKey(name: "page", nullable: true)
-  int page;
-  @JsonKey(name: "results", nullable: true)
-  List<dynamic> data;
-  @JsonKey(name: "total_pages", nullable: true)
-  int totalPages;
-  @JsonKey(name: "total_results", nullable: true)
-  int totalResults;
+  @JsonKey(name: "page")
+  int? page;
+  @JsonKey(name: "results")
+  List<dynamic>? data;
+  @JsonKey(name: "total_pages")
+  int? totalPages;
+  @JsonKey(name: "total_results")
+  int? totalResults;
 
   ListResponse(
       {this.page, this.data, this.totalPages, this.totalResults});

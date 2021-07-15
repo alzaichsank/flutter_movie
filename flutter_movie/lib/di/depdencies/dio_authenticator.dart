@@ -7,12 +7,13 @@ class DioAuthenticator extends InterceptorsWrapper {
   DioAuthenticator(this.previous);
 
   @override
-  Future onResponse(Response response) {
-    return super.onResponse(response);
+  void onResponse(Response response,ResponseInterceptorHandler responseInterceptorHandler) {
+    return super.onResponse(response,responseInterceptorHandler);
   }
 
   @override
-  onError(DioError error) async {
-    return error;
+  void onError(
+      DioError error, ErrorInterceptorHandler errorInterceptorHandler) async {
+    return super.onError(error, errorInterceptorHandler);
   }
 }

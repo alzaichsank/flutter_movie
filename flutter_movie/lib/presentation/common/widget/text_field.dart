@@ -10,25 +10,25 @@ import 'package:flutter_movie/commons/manifest/text_style_manifest.dart';
 import 'package:flutter_movie/commons/sizer/size_ext.dart';
 
 class FormTextField extends StatefulWidget {
-  final FormTextFieldType type;
-  final String title;
-  final String hintText;
-  final String initialText;
-  final bool enable;
-  final bool showError;
-  final bool autoFocus;
-  final TextInputAction textInputAction;
-  final ValueChanged<String> onChanged;
-  final String errorMessage;
-  final TextEditingController controller;
-  final ValueChanged<String> onSubmitted;
-  final GestureTapCallback onTap;
+  final FormTextFieldType? type;
+  final String?  title;
+  final String?  hintText;
+  final String?  initialText;
+  final bool?  enable;
+  final bool?  showError;
+  final bool?  autoFocus;
+  final TextInputAction? textInputAction;
+  final ValueChanged<String>? onChanged;
+  final String?  errorMessage;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onSubmitted;
+  final GestureTapCallback? onTap;
 
   @override
   _FormTextFieldState createState() => _FormTextFieldState();
 
   const FormTextField({
-    Key key,
+    Key? key,
     @required this.type,
     @required this.enable,
     @required this.onChanged,
@@ -74,8 +74,8 @@ class _FormTextFieldState extends State<FormTextField> {
     return inputFormatters;
   }
 
-  Widget _getPrefixIcon() {
-    Widget icon;
+  Widget? _getPrefixIcon() {
+    Widget? icon;
     switch (widget.type) {
       case FormTextFieldType.FULLNAME:
         icon = Row(
@@ -122,14 +122,14 @@ class _FormTextFieldState extends State<FormTextField> {
     return icon;
   }
 
-  Widget _getSuffixIcon() {
+  Widget? _getSuffixIcon() {
     _toggle() {
       setState(() {
         _obscureText = !_obscureText;
       });
     }
 
-    Widget suffixIcon;
+    Widget? suffixIcon;
     switch (widget.type) {
       case FormTextFieldType.PASSWORD:
         suffixIcon = GestureDetector(
@@ -245,7 +245,7 @@ class _FormTextFieldState extends State<FormTextField> {
     }
   }
 
-  bool _isEnabled() {
+  bool? _isEnabled() {
     switch (widget.type) {
       case FormTextFieldType.DATE:
         return false;
@@ -340,8 +340,8 @@ class _FormTextFieldState extends State<FormTextField> {
           counter: Text(""),
           suffixIcon: _getSuffixIcon(),
           prefixIcon: _getPrefixIcon(),
-          errorText: widget.showError ? widget.errorMessage : null,
-          errorStyle: widget.showError
+          errorText: widget.showError! ? widget.errorMessage : null,
+          errorStyle: widget.showError!
               ? TextStylesManifest.textFormFieldRegular
                   .copyWith(color: Colors.red)
               : null,
@@ -416,7 +416,7 @@ class _FormTextFieldState extends State<FormTextField> {
             controller: widget.controller,
             keyboardType: _getKeyboardType(),
             onFieldSubmitted: widget.onSubmitted,
-            autofocus: widget.autoFocus,
+            autofocus: widget.autoFocus!,
             enabled: _isEnabled(),
             style: TextStylesManifest.textFormFieldRegular.copyWith(
                 fontSize: DimensionsManifest.UNIT_11.sp,

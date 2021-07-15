@@ -14,7 +14,7 @@ part 'detail_state.dart';
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
   DetailBloc() : super(const DetailState());
 
-  SearchMovie searchMovie;
+  SearchMovie? searchMovie;
 
   @override
   Stream<DetailState> mapEventToState(
@@ -24,7 +24,7 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
       searchMovie = event.searchMovieData;
       yield state.copyWith(
           state: DetailBlocState.showDetailBlocScreen(),
-          searchMovie: searchMovie);
+          searchMovie: searchMovie!);
     }
   }
 }

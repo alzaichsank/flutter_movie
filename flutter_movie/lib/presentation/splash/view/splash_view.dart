@@ -9,7 +9,7 @@ import 'package:flutter_movie/di/injector.dart';
 import 'package:flutter_movie/presentation/splash/splash.dart';
 
 class SplashView extends StatefulWidget {
-  SplashView({Key key}) : super(key: key);
+  SplashView({Key? key}) : super(key: key);
 
   @override
   _SplashViewState createState() => _SplashViewState();
@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => Future.delayed(
+    WidgetsBinding.instance!.addPostFrameCallback((_) => Future.delayed(
         Duration(seconds: 1),
         () => context.read<SplashBloc>().add(SplashShowMain())));
   }

@@ -5,7 +5,7 @@ class SplashViewState extends Equatable {
 
   final SplashState state;
 
-  SplashViewState copyWith({SplashState state}) {
+  SplashViewState copyWith({SplashState? state}) {
     return SplashViewState(state: state ?? this.state);
   }
 

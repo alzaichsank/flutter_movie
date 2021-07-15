@@ -4,12 +4,12 @@ import 'package:flutter_movie/commons/manifest/dimension_manifest.dart';
 import 'package:flutter_movie/commons/sizer/size_config.dart';
 
 class ToolbarHolder extends StatefulWidget {
-  final Color color;
-  final Widget child;
-  final double height;
+  final Color? color;
+  final Widget? child;
+  final double? height;
 
   ToolbarHolder({
-    Key key,
+    Key? key,
     this.color,
     this.height,
     @required this.child,

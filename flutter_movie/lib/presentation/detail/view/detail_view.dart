@@ -26,15 +26,13 @@ part 'content/details_image_header.dart';
 part 'content/details_toolbar.dart';
 
 class DetailView extends StatefulWidget {
-  DetailView({Key key}) : super(key: key);
+  DetailView({Key? key}) : super(key: key);
 
   @override
   _DetailViewState createState() => _DetailViewState();
 }
 
 class _DetailViewState extends State<DetailView> {
-  final _navigator = Injector.locator<NavigationDispatcher>();
-
   _DetailViewState();
 
   @override
@@ -72,7 +70,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                     padding: EdgeInsets.symmetric(
                         horizontal: DimensionsManifest.UNIT_4.blockW),
                     child:
-                        Center(child: _ImageHeader(detail: state.searchMovie)),
+                        Center(child: _ImageHeader(detail: state.searchMovie!)),
                   ),
                   SizedBox(
                     height: DimensionsManifest.UNIT_2.blockH,
@@ -81,7 +79,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                     padding: EdgeInsets.symmetric(
                         horizontal: DimensionsManifest.UNIT_4.blockW),
                     child: Text(
-                      state.searchMovie.title,
+                      state.searchMovie!.title ?? "-",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStylesManifest.textFormFieldSemiBold.copyWith(
@@ -106,7 +104,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                             maxLine: 1,
                             isSoftWarp: false,
                             isFlexible: true,
-                            buttonText: state.searchMovie.releaseDate,
+                            buttonText: state.searchMovie!.releaseDate,
                             buttonTextColor:
                                 HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),
                             leftIcon: Padding(
@@ -123,7 +121,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                             maxLine: 1,
                             isSoftWarp: false,
                             isFlexible: true,
-                            buttonText: "${state.searchMovie.voteAverage}",
+                            buttonText: "${state.searchMovie!.voteAverage}",
                             buttonTextColor:
                                 HexColor.toColor(ColorManifest.BODY_TEXT_COLOR),
                             leftIcon: Padding(
@@ -143,7 +141,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                     padding: EdgeInsets.symmetric(
                         horizontal: DimensionsManifest.UNIT_4.blockW),
                     child: Text(
-                      state.searchMovie.overview,
+                      state.searchMovie!.overview ?? "-",
                       maxLines: 100,
                       textAlign: TextAlign.justify,
                       overflow: TextOverflow.ellipsis,

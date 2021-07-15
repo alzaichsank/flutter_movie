@@ -14,14 +14,14 @@ class _$ApiResultTearOff {
   const _$ApiResultTearOff();
 
 // ignore: unused_element
-  Success<T> success<T>({@required T data}) {
+  Success<T> success<T>({required T data}) {
     return Success<T>(
       data: data,
     );
   }
 
 // ignore: unused_element
-  Failure<T> failure<T>({@required NetworkException error}) {
+  Failure<T> failure<T>({required NetworkException error}) {
     return Failure<T>(
       error: error,
     );

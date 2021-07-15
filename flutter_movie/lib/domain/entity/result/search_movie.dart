@@ -5,18 +5,18 @@ part 'search_movie.g.dart';
 
 @JsonSerializable()
 class SearchMovie extends ItemType {
-  @JsonKey(name: "id", nullable: true)
-  int id;
-  @JsonKey(name: "poster_path", nullable: true)
-  String image;
-  @JsonKey(name: "overview", nullable: true)
-  String overview;
-  @JsonKey(name: "release_date", nullable: true)
-  String releaseDate;
-  @JsonKey(name: "title", nullable: true)
-  String title;
-  @JsonKey(name: "vote_average", nullable: true)
-  double voteAverage;
+  @JsonKey(name: "id")
+  num? id;
+  @JsonKey(name: "poster_path")
+  String? image;
+  @JsonKey(name: "overview")
+  String? overview;
+  @JsonKey(name: "release_date")
+  String? releaseDate;
+  @JsonKey(name: "title")
+  String? title;
+  @JsonKey(name: "vote_average")
+  double? voteAverage;
 
   SearchMovie(
       {this.id,
@@ -27,12 +27,12 @@ class SearchMovie extends ItemType {
       this.voteAverage});
 
   SearchMovie copyWith(
-      {num id,
-      String image,
-      String overview,
-      String releaseDate,
-      String title,
-      double voteAverage}) {
+      {num? id,
+      String? image,
+      String? overview,
+      String? releaseDate,
+      String? title,
+      double? voteAverage}) {
     return SearchMovie(
         id: id ?? this.id,
         image: image ?? this.image,

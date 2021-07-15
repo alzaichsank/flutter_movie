@@ -8,26 +8,26 @@ import 'package:flutter_movie/commons/manifest/text_style_manifest.dart';
 import 'icon_text.dart';
 
 class RegularButton extends StatefulWidget {
-  final Widget icon;
-  final String title;
-  final double fontSize;
-  final Color buttonTextColor;
-  final GestureTapCallback onPressed;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-  final Color color;
-  final BorderRadius styleRadius;
-  final bool enabled;
-  final double height;
-  final double width;
-  final bool useIconOnly;
-  final double elevation;
-  final Alignment textOnlyAlign;
-  final bool useShadow;
-  final Gradient gradient;
+  final Widget? icon;
+  final String? title;
+  final double?  fontSize;
+  final Color? buttonTextColor;
+  final GestureTapCallback? onPressed;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final Color? color;
+  final BorderRadius? styleRadius;
+  final bool?  enabled;
+  final double?  height;
+  final double?  width;
+  final bool?  useIconOnly;
+  final double?  elevation;
+  final Alignment? textOnlyAlign;
+  final bool?  useShadow;
+  final Gradient? gradient;
 
   const RegularButton({
-    Key key,
+    Key? key,
     @required this.onPressed,
     this.title,
     this.fontSize,
@@ -61,7 +61,7 @@ class _RegularButtonState extends State<RegularButton> {
 
   _buildButton() {
     var shadow = <BoxShadow>[];
-    if (widget.useShadow) {
+    if (widget.useShadow!) {
       shadow.add(
         BoxShadow(
           color: HexColor.toColor(ColorManifest.BLACK_COLOR).withOpacity(0.05),
@@ -86,7 +86,7 @@ class _RegularButtonState extends State<RegularButton> {
           child: InkWell(
             splashColor: HexColor.toDarker(
                 widget.color ?? HexColor.toColor(ColorManifest.WHITE_COLOR)),
-            onTap: () => widget.onPressed(),
+            onTap: () => widget.onPressed!(),
             child: Center(
               child: Container(
                 width: widget.width,
@@ -94,7 +94,7 @@ class _RegularButtonState extends State<RegularButton> {
                 padding: widget.padding ??
                     EdgeInsets.all(DimensionsManifest.UNIT_14),
                 margin: widget.margin != null ? widget.margin : null,
-                child: widget.useIconOnly
+                child: widget.useIconOnly!
                     ? _buildIcon()
                     : (widget.icon != null
                         ? _buildTextIcon()
@@ -123,7 +123,7 @@ class _RegularButtonState extends State<RegularButton> {
     return Container(
       alignment: widget.textOnlyAlign ?? Alignment.center,
       child: Text(
-        widget.title,
+        widget.title!,
         style: TextStylesManifest.textFormFieldMedium.copyWith(
           fontSize: widget.fontSize,
           color: widget.buttonTextColor ??

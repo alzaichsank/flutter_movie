@@ -9,7 +9,7 @@ import '../splash.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

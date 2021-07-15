@@ -1,7 +1,7 @@
 part of '../main_view.dart';
 
 class _MainBody extends StatefulWidget {
-  _MainBody({Key key}) : super(key: key);
+  _MainBody({Key? key}) : super(key: key);
 
   @override
   _MainBodyState createState() => _MainBodyState();
@@ -70,7 +70,7 @@ class _MainBodyState extends State<_MainBody> {
     }
   }
 
-  _paddingTop({Widget child}) => Container(
+  _paddingTop({Widget? child}) => Container(
         padding: EdgeInsets.only(top: DimensionsManifest.UNIT_16),
         child: child,
       );

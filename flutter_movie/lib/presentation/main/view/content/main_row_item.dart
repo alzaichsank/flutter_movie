@@ -117,7 +117,7 @@ LayoutBuilder _buildImagePreview(String image) {
 Widget _buildDetail(SearchMovie item) {
   Text _buildTitle() {
     return Text(
-      item.title,
+      item.title ?? "-",
       textAlign: TextAlign.left,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
@@ -129,7 +129,7 @@ Widget _buildDetail(SearchMovie item) {
 
   Text _buildOverView() {
     return Text(
-      item.overview,
+      item.overview ?? "-",
       maxLines: 3,
       textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,

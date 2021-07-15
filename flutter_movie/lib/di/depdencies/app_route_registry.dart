@@ -19,21 +19,21 @@ class AppRouteRegistry {
   //region initialization
   _initIntro() {
     router.define(IntroRoute.SPLASH, handler: Handler(
-        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return SplashPage();
     }));
   }
 
   _initInternal() {
     router.define(InternalRoute.MAIN, handler: Handler(
-        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return MainPage();
     }));
     //
     router.define(InternalRoute.DETAIL, handler: Handler(
-        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       final SearchMovie searchMovie =
-          context.settings.arguments ?? SearchMovie.empty();
+          context!.settings!.arguments ?? SearchMovie.empty();
       return DetailPage(searchMovie: searchMovie);
     }));
   }

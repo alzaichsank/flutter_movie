@@ -8,7 +8,7 @@ import 'package:flutter_movie/commons/manifest/text_style_manifest.dart';
 
 class DoubleBounceLoading extends StatefulWidget {
   const DoubleBounceLoading({
-    Key key,
+    Key? key,
     this.color,
     this.size = 50.0,
     this.itemBuilder,
@@ -21,11 +21,11 @@ class DoubleBounceLoading extends StatefulWidget {
         assert(size != null),
         super(key: key);
 
-  final Color color;
-  final double size;
-  final IndexedWidgetBuilder itemBuilder;
-  final Duration duration;
-  final AnimationController controller;
+  final Color? color;
+  final double? size;
+  final IndexedWidgetBuilder? itemBuilder;
+  final Duration? duration;
+  final AnimationController? controller;
 
   @override
   _DoubleBounceLoadingState createState() => _DoubleBounceLoadingState();
@@ -33,8 +33,8 @@ class DoubleBounceLoading extends StatefulWidget {
 
 class _DoubleBounceLoadingState extends State<DoubleBounceLoading>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
+  AnimationController? _controller;
+  Animation<double>? _animation;
 
   @override
   void initState() {
@@ -45,12 +45,12 @@ class _DoubleBounceLoadingState extends State<DoubleBounceLoading>
       ..addListener(() => setState(() {}))
       ..repeat(reverse: true);
     _animation = Tween(begin: -1.0, end: 1.0)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+        .animate(CurvedAnimation(parent: _controller!, curve: Curves.easeInOut));
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -60,9 +60,9 @@ class _DoubleBounceLoadingState extends State<DoubleBounceLoading>
       child: Stack(
         children: List.generate(2, (i) {
           return Transform.scale(
-            scale: (1.0 - i - _animation.value.abs()).abs(),
+            scale: (1.0 - i - _animation!.value.abs()).abs(),
             child: SizedBox.fromSize(
-                size: Size.square(widget.size), child: _itemBuilder(i)),
+                size: Size.square(widget.size!), child: _itemBuilder(i)),
           );
         }),
       ),
@@ -70,10 +70,10 @@ class _DoubleBounceLoadingState extends State<DoubleBounceLoading>
   }
 
   Widget _itemBuilder(int index) => widget.itemBuilder != null
-      ? widget.itemBuilder(context, index)
+      ? widget.itemBuilder!(context, index)
       : DecoratedBox(
           decoration: BoxDecoration(
-              shape: BoxShape.circle, color: widget.color.withOpacity(0.6)));
+              shape: BoxShape.circle, color: widget.color!.withOpacity(0.6)));
 }
 
 class LoadingDialog {

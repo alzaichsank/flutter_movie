@@ -6,21 +6,21 @@ import 'package:flutter_movie/commons/manifest/dimension_manifest.dart';
 import 'package:flutter_movie/commons/manifest/text_style_manifest.dart';
 
 class IconText extends StatefulWidget {
-  final double fontSize;
-  final String buttonText;
-  final Widget leftIcon;
-  final Color buttonTextColor;
-  final TextAlign textAlign;
-  final int maxLine;
-  final bool isBold;
-  final bool isSoftWarp;
-  final bool isFlexible;
-  final bool isFillSpace;
-  final Color roundedIconColor;
-  final TextOverflow overflow;
+  final double? fontSize;
+  final String? buttonText;
+  final Widget? leftIcon;
+  final Color? buttonTextColor;
+  final TextAlign? textAlign;
+  final int? maxLine;
+  final bool?  isBold;
+  final bool?  isSoftWarp;
+  final bool?  isFlexible;
+  final bool?  isFillSpace;
+  final Color? roundedIconColor;
+  final TextOverflow? overflow;
 
   const IconText(
-      {Key key,
+      {Key? key,
       this.fontSize,
       this.buttonText,
       this.leftIcon,
@@ -46,7 +46,7 @@ class _IconTextState extends State<IconText> {
       child: Center(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: widget.isFillSpace
+          mainAxisAlignment: widget.isFillSpace!
               ? MainAxisAlignment.spaceBetween
               : widget.textAlign == TextAlign.center
                   ? MainAxisAlignment.center
@@ -64,16 +64,16 @@ class _IconTextState extends State<IconText> {
               ),
             ),
             SizedBox(width: DimensionsManifest.UNIT_4),
-            widget.isFlexible
+            widget.isFlexible!
                 ? Flexible(
                     fit: FlexFit.loose,
                     child: Text(
-                      widget.buttonText,
+                      widget.buttonText!,
                       textAlign: widget.textAlign,
                       overflow: widget.overflow ?? widget.overflow,
                       maxLines: widget.maxLine ?? widget.maxLine,
                       softWrap: widget.isSoftWarp ?? widget.isSoftWarp,
-                      style: widget.isBold
+                      style: widget.isBold!
                           ? TextStylesManifest.textFormFieldBold.copyWith(
                               fontSize: widget.fontSize,
                               color: widget.buttonTextColor ??
@@ -89,7 +89,7 @@ class _IconTextState extends State<IconText> {
                     ),
                   )
                 : Text(
-                    widget.buttonText,
+                    widget.buttonText!,
                     textAlign: widget.textAlign,
                     overflow: widget.overflow ?? widget.overflow,
                     maxLines: widget.maxLine ?? widget.maxLine,

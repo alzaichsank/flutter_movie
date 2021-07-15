@@ -10,12 +10,12 @@ import 'package:flutter_movie/commons/sizer/size_ext.dart';
 part 'view/regular_body_stack.dart';
 
 class BackgroundStack extends StatefulWidget {
-  final Widget body;
-  final Widget toolbar;
-  final RegularBackgroundBuilder regularBuilder;
+  final Widget? body;
+  final Widget? toolbar;
+  final RegularBackgroundBuilder? regularBuilder;
 
   const BackgroundStack({
-    Key key,
+    Key? key,
     @required this.body,
     this.toolbar,
     this.regularBuilder,
@@ -63,7 +63,7 @@ class TransparentBackgroundBuilder {
   final double topHeight;
   final bool useBuiltInScaffold;
   final bool useOpacityBackground;
-  final Color cardColor;
+  final Color? cardColor;
 
   TransparentBackgroundBuilder({
     this.useCard = true,

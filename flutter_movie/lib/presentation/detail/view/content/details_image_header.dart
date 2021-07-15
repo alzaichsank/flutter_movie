@@ -2,11 +2,11 @@ part of '../detail_view.dart';
 
 class _ImageHeader extends StatelessWidget {
   const _ImageHeader({
-    Key key,
+    Key? key,
     @required this.detail,
   }) : super(key: key);
 
-  final SearchMovie detail;
+  final SearchMovie? detail;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _ImageHeader extends StatelessWidget {
     );
   }
 
-  SizedBox _buildImage(BuildContext context, SearchMovie item) {
+  SizedBox _buildImage(BuildContext context, SearchMovie? item) {
     _content() => AspectRatio(
           aspectRatio: 1 / 2,
           child: LayoutBuilder(

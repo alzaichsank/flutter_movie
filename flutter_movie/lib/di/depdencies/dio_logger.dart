@@ -1,7 +1,6 @@
-import 'package:dio/dio.dart';
-
-import 'dart:async';
 import 'dart:math' as math;
+
+import 'package:dio/dio.dart';
 
 class DioLogger extends Interceptor {
   /// Print request [Options]
@@ -41,17 +40,18 @@ class DioLogger extends Interceptor {
 
   DioLogger(
       {this.request = true,
-        this.requestHeader = false,
-        this.requestBody = false,
-        this.responseHeader = false,
-        this.responseBody = true,
-        this.error = true,
-        this.maxWidth = 90,
-        this.compact = true,
-        this.logPrint = print});
+      this.requestHeader = false,
+      this.requestBody = false,
+      this.responseHeader = false,
+      this.responseBody = true,
+      this.error = true,
+      this.maxWidth = 90,
+      this.compact = true,
+      this.logPrint = print});
 
   @override
-  Future onRequest(RequestOptions options) async {
+  void onRequest(RequestOptions options,
+      RequestInterceptorHandler requestInterceptorHandler) async {
     if (request) {
       _printRequestHeader(options);
     }
@@ -62,7 +62,7 @@ class DioLogger extends Interceptor {
         requestHeaders.addAll(options.headers);
       }
       requestHeaders['contentType'] = options.contentType?.toString();
-      requestHeaders['responseType'] = options.responseType?.toString();
+      requestHeaders['responseType'] = options.responseType.toString();
       requestHeaders['followRedirects'] = options.followRedirects;
       requestHeaders['connectTimeout'] = options.connectTimeout;
       requestHeaders['receiveTimeout'] = options.receiveTimeout;
@@ -82,33 +82,32 @@ class DioLogger extends Interceptor {
           _printBlock(data.toString());
       }
     }
-
-    return options;
   }
 
   @override
-  Future onError(DioError err) async {
+  void onError(
+      DioError err, ErrorInterceptorHandler errorInterceptorHandler) async {
     if (error) {
-      if (err.type == DioErrorType.RESPONSE) {
-        final uri = err.response.request.uri;
+      if (err.type == DioErrorType.response) {
+        final uri = err.response!.realUri;
         _printBoxed(
             header:
-            'DioError ║ Status: ${err.response.statusCode} ${err.response.statusMessage}',
+                'DioError ║ Status: ${err.response!.statusCode} ${err.response!.statusMessage}',
             text: uri.toString());
-        if (err.response != null && err.response.data != null) {
+        if (err.response != null && err.response!.data != null) {
           logPrint('╔ ${err.type.toString()}');
-          _printResponse(err.response);
+          _printResponse(err.response!);
         }
         _printLine('╚');
         logPrint('');
       } else
         _printBoxed(header: 'DioError ║ ${err.type}', text: err.message);
     }
-    return err;
   }
 
   @override
-  Future onResponse(Response response) async {
+  void onResponse(Response response,
+      ResponseInterceptorHandler responseInterceptorHandler) async {
     _printResponseHeader(response);
     if (responseHeader) {
       final responseHeaders = Map<String, String>();
@@ -124,11 +123,9 @@ class DioLogger extends Interceptor {
       logPrint('║');
       _printLine('╚');
     }
-
-    return response;
   }
 
-  void _printBoxed({String header, String text}) {
+  void _printBoxed({String? header, String? text}) {
     logPrint('');
     logPrint('╔╣ $header');
     logPrint('║  $text');
@@ -149,17 +146,17 @@ class DioLogger extends Interceptor {
   }
 
   void _printResponseHeader(Response response) {
-    final uri = response?.request?.uri;
-    final method = response.request.method;
+    final uri = response.realUri;
+    final method = response.requestOptions.method;
     _printBoxed(
         header:
-        'Response ║ $method ║ Status: ${response.statusCode} ${response.statusMessage}',
+            'Response ║ $method ║ Status: ${response.statusCode} ${response.statusMessage}',
         text: uri.toString());
   }
 
   void _printRequestHeader(RequestOptions options) {
-    final uri = options?.uri;
-    final method = options?.method;
+    final uri = options.uri;
+    final method = options.method;
     _printBoxed(header: 'Request ║ $method ', text: uri.toString());
   }
 
@@ -257,7 +254,7 @@ class DioLogger extends Interceptor {
     return (list.length < 10 && list.toString().length < maxWidth);
   }
 
-  void _printMapAsTable(Map map, {String header}) {
+  void _printMapAsTable(Map map, {String? header}) {
     if (map == null || map.isEmpty) return;
     logPrint('╔ $header ');
     map.forEach((key, value) => _printKV(key, value));

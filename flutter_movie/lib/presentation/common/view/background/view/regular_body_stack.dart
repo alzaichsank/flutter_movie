@@ -7,7 +7,7 @@ Widget _buildRegularBodyStack(BackgroundStack widget) {
       children: <Widget>[
         Container(
           width: SizeConfig().getScreenWidth(),
-          height: widget.regularBuilder.topHeight.toHeight,
+          height: widget.regularBuilder!.topHeight.toHeight,
           margin: EdgeInsets.zero,
         ),
         Expanded(
@@ -24,12 +24,12 @@ Widget _buildRegularBodyStack(BackgroundStack widget) {
     return Container(
       padding: EdgeInsets.only(
           top: DimensionsManifest.UNIT_1.h +
-              widget.regularBuilder.cardTopPadding),
+              widget.regularBuilder!.cardTopPadding),
       height: DimensionsManifest.UNIT_99.h,
       child: ClipRRect(
         borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_25_TOP,
         child: Container(
-          color: HexColor.toColor(widget.regularBuilder.cardColor),
+          color: HexColor.toColor(widget.regularBuilder!.cardColor),
         ),
       ),
     );
@@ -39,7 +39,7 @@ Widget _buildRegularBodyStack(BackgroundStack widget) {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: HexColor.toColor(widget.regularBuilder.backgroundColor),
+      color: HexColor.toColor(widget.regularBuilder!.backgroundColor),
     );
   }
 
@@ -61,7 +61,7 @@ Widget _buildRegularBodyStack(BackgroundStack widget) {
           (DimensionsManifest.UNIT_12 + 0.1).h,
         ),
         child: Container(
-          color: HexColor.toColor(widget.regularBuilder.backgroundColor),
+          color: HexColor.toColor(widget.regularBuilder!.backgroundColor),
           child: widget.toolbar,
         ),
       ),
