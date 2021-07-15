@@ -8,13 +8,12 @@ part of 'search_response.dart';
 
 SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) {
   return SearchResponse(
-    page: json['page'] as int,
-    data: (json['results'] as List)
-        ?.map((e) =>
-            e == null ? null : SearchData.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    totalPages: json['total_pages'] as int,
-    totalResults: json['total_results'] as int,
+    page: json['page'] as int?,
+    data: (json['results'] as List<dynamic>?)
+        ?.map((e) => SearchData.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    totalPages: json['total_pages'] as int?,
+    totalResults: json['total_results'] as int?,
   );
 }
 
@@ -28,12 +27,12 @@ Map<String, dynamic> _$SearchResponseToJson(SearchResponse instance) =>
 
 SearchData _$SearchDataFromJson(Map<String, dynamic> json) {
   return SearchData(
-    id: json['id'] as int,
-    image: json['poster_path'] as String,
-    overview: json['overview'] as String,
-    releaseDate: json['release_date'] as String,
-    title: json['title'] as String,
-    voteAverage: (json['vote_average'] as num)?.toDouble(),
+    id: json['id'] as int?,
+    image: json['poster_path'] as String?,
+    overview: json['overview'] as String?,
+    releaseDate: json['release_date'] as String?,
+    title: json['title'] as String?,
+    voteAverage: (json['vote_average'] as num?)?.toDouble(),
   );
 }
 

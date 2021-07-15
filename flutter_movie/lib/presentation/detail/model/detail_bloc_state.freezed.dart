@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'detail_bloc_state.dart';
 
@@ -9,49 +9,53 @@ part of 'detail_bloc_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$DetailBlocStateTearOff {
   const _$DetailBlocStateTearOff();
 
-// ignore: unused_element
   PureDetailBloc pureDetailBloc() {
     return const PureDetailBloc();
   }
 
-// ignore: unused_element
   ShowDetailBlocScreen showDetailBlocScreen() {
     return const ShowDetailBlocScreen();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DetailBlocState = _$DetailBlocStateTearOff();
 
 /// @nodoc
 mixin _$DetailBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pureDetailBloc(),
-    @required TResult showDetailBlocScreen(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() pureDetailBloc,
+    required TResult Function() showDetailBlocScreen,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pureDetailBloc(),
-    TResult showDetailBlocScreen(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pureDetailBloc,
+    TResult Function()? showDetailBlocScreen,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pureDetailBloc(PureDetailBloc value),
-    @required TResult showDetailBlocScreen(ShowDetailBlocScreen value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureDetailBloc value) pureDetailBloc,
+    required TResult Function(ShowDetailBlocScreen value) showDetailBlocScreen,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pureDetailBloc(PureDetailBloc value),
-    TResult showDetailBlocScreen(ShowDetailBlocScreen value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureDetailBloc value)? pureDetailBloc,
+    TResult Function(ShowDetailBlocScreen value)? showDetailBlocScreen,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,6 +95,7 @@ class _$PureDetailBlocCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PureDetailBloc implements PureDetailBloc {
   const _$PureDetailBloc();
 
@@ -109,23 +114,20 @@ class _$PureDetailBloc implements PureDetailBloc {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pureDetailBloc(),
-    @required TResult showDetailBlocScreen(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pureDetailBloc,
+    required TResult Function() showDetailBlocScreen,
   }) {
-    assert(pureDetailBloc != null);
-    assert(showDetailBlocScreen != null);
     return pureDetailBloc();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pureDetailBloc(),
-    TResult showDetailBlocScreen(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pureDetailBloc,
+    TResult Function()? showDetailBlocScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pureDetailBloc != null) {
       return pureDetailBloc();
     }
@@ -134,23 +136,20 @@ class _$PureDetailBloc implements PureDetailBloc {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pureDetailBloc(PureDetailBloc value),
-    @required TResult showDetailBlocScreen(ShowDetailBlocScreen value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureDetailBloc value) pureDetailBloc,
+    required TResult Function(ShowDetailBlocScreen value) showDetailBlocScreen,
   }) {
-    assert(pureDetailBloc != null);
-    assert(showDetailBlocScreen != null);
     return pureDetailBloc(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pureDetailBloc(PureDetailBloc value),
-    TResult showDetailBlocScreen(ShowDetailBlocScreen value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureDetailBloc value)? pureDetailBloc,
+    TResult Function(ShowDetailBlocScreen value)? showDetailBlocScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pureDetailBloc != null) {
       return pureDetailBloc(this);
     }
@@ -182,6 +181,7 @@ class _$ShowDetailBlocScreenCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowDetailBlocScreen implements ShowDetailBlocScreen {
   const _$ShowDetailBlocScreen();
 
@@ -200,23 +200,20 @@ class _$ShowDetailBlocScreen implements ShowDetailBlocScreen {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pureDetailBloc(),
-    @required TResult showDetailBlocScreen(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pureDetailBloc,
+    required TResult Function() showDetailBlocScreen,
   }) {
-    assert(pureDetailBloc != null);
-    assert(showDetailBlocScreen != null);
     return showDetailBlocScreen();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pureDetailBloc(),
-    TResult showDetailBlocScreen(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pureDetailBloc,
+    TResult Function()? showDetailBlocScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showDetailBlocScreen != null) {
       return showDetailBlocScreen();
     }
@@ -225,23 +222,20 @@ class _$ShowDetailBlocScreen implements ShowDetailBlocScreen {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pureDetailBloc(PureDetailBloc value),
-    @required TResult showDetailBlocScreen(ShowDetailBlocScreen value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureDetailBloc value) pureDetailBloc,
+    required TResult Function(ShowDetailBlocScreen value) showDetailBlocScreen,
   }) {
-    assert(pureDetailBloc != null);
-    assert(showDetailBlocScreen != null);
     return showDetailBlocScreen(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pureDetailBloc(PureDetailBloc value),
-    TResult showDetailBlocScreen(ShowDetailBlocScreen value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureDetailBloc value)? pureDetailBloc,
+    TResult Function(ShowDetailBlocScreen value)? showDetailBlocScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showDetailBlocScreen != null) {
       return showDetailBlocScreen(this);
     }

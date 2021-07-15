@@ -53,8 +53,8 @@ Widget _buildItemRow(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible( child : _buildImage(item, context, state)),
-                Expanded( child :_buildDetail(item))
+                Flexible(child: _buildImage(item, context, state)),
+                Expanded(child: _buildDetail(item))
               ],
             ),
           ),
@@ -70,7 +70,8 @@ Container _buildImage(
   MainState state,
 ) {
   return Container(
-    margin: EdgeInsets.only(left: DimensionsManifest.UNIT_24,top: DimensionsManifest.UNIT_30),
+    margin: EdgeInsets.only(
+        left: DimensionsManifest.UNIT_24, top: DimensionsManifest.UNIT_30),
     height: DimensionsManifest.UNIT_15.h,
     child: AspectRatio(
       aspectRatio: 1 / 1,
@@ -84,31 +85,30 @@ Container _buildImage(
 }
 
 LayoutBuilder _buildImagePreview(String image) {
+  final CacheManager customCacheManager =
+      CacheManager(Config('customCacheKey', stalePeriod: Duration(days: 31)));
   return LayoutBuilder(
     builder: (context, constraints) {
       return ClipRRect(
         borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_16,
-        child: TransitionToImage(
-          width: DimensionsManifest.UNIT_90,
-          height: DimensionsManifest.UNIT_90,
-          fit: BoxFit.fill,
-          loadingWidgetBuilder: (_, __, ___) => Center(
-            child: DoubleBounceLoading(
-              color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
-            ),
-          ),
-          placeholder: Container(
+        child: CachedNetworkImage(
+            imageUrl: image,
+            placeholder: (context, url) => Container(
+                  width: DimensionsManifest.UNIT_90,
+                  height: DimensionsManifest.UNIT_90,
+                  color: HexColor.toColor(ColorManifest.BACKGROUND_COLOR),
+                  child: const Icon(Icons.broken_image),
+                ),
             width: DimensionsManifest.UNIT_90,
             height: DimensionsManifest.UNIT_90,
-            color: HexColor.toColor(ColorManifest.BACKGROUND_COLOR),
-            child: const Icon(Icons.broken_image),
-          ),
-          image: AdvancedNetworkImage(
-            image,
-            useDiskCache: true,
-            cacheRule: CacheRule(maxAge: const Duration(days: 31)),
-          ),
-        ),
+            fit: BoxFit.fill,
+            progressIndicatorBuilder: (context, url, downloadProgress) {
+              return Center(
+                  child: DoubleBounceLoading(
+                color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
+              ));
+            },
+            cacheManager: customCacheManager),
       );
     },
   );
@@ -159,7 +159,7 @@ Widget _buildDetail(SearchMovie item) {
   }
 
   return Container(
-    margin: EdgeInsets.only(top : DimensionsManifest.UNIT_30),
+    margin: EdgeInsets.only(top: DimensionsManifest.UNIT_30),
     padding: EdgeInsets.only(
       left: DimensionsManifest.UNIT_16,
     ),

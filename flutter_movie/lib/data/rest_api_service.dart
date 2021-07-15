@@ -11,7 +11,7 @@ abstract class RestApiService {
 
   @GET("search/movie")
   Future<ListResponse> searchMovie(
-      {@Query("api_key") String apiKey,
+      {@Query("api_key") String? apiKey,
       @Query("query") String? query,
       @Query("page") int? page});
 }

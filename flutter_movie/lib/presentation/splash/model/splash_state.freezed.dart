@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'splash_state.dart';
 
@@ -9,58 +9,61 @@ part of 'splash_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SplashStateTearOff {
   const _$SplashStateTearOff();
 
-// ignore: unused_element
   Pure pure() {
     return const Pure();
   }
 
-// ignore: unused_element
   ShowLoading showLoading() {
     return const ShowLoading();
   }
 
-// ignore: unused_element
   ShowMainScreen showMainScreen() {
     return const ShowMainScreen();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SplashState = _$SplashStateTearOff();
 
 /// @nodoc
 mixin _$SplashState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showLoading(),
-    @required TResult showMainScreen(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showLoading,
+    required TResult Function() showMainScreen,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showLoading(),
-    TResult showMainScreen(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showLoading,
+    TResult Function()? showMainScreen,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(Pure value),
-    @required TResult showLoading(ShowLoading value),
-    @required TResult showMainScreen(ShowMainScreen value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Pure value) pure,
+    required TResult Function(ShowLoading value) showLoading,
+    required TResult Function(ShowMainScreen value) showMainScreen,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(Pure value),
-    TResult showLoading(ShowLoading value),
-    TResult showMainScreen(ShowMainScreen value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Pure value)? pure,
+    TResult Function(ShowLoading value)? showLoading,
+    TResult Function(ShowMainScreen value)? showMainScreen,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -96,6 +99,7 @@ class _$PureCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Pure implements Pure {
   const _$Pure();
 
@@ -114,26 +118,22 @@ class _$Pure implements Pure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showLoading(),
-    @required TResult showMainScreen(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showLoading,
+    required TResult Function() showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return pure();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showLoading(),
-    TResult showMainScreen(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showLoading,
+    TResult Function()? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pure != null) {
       return pure();
     }
@@ -142,26 +142,22 @@ class _$Pure implements Pure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(Pure value),
-    @required TResult showLoading(ShowLoading value),
-    @required TResult showMainScreen(ShowMainScreen value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Pure value) pure,
+    required TResult Function(ShowLoading value) showLoading,
+    required TResult Function(ShowMainScreen value) showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return pure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(Pure value),
-    TResult showLoading(ShowLoading value),
-    TResult showMainScreen(ShowMainScreen value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Pure value)? pure,
+    TResult Function(ShowLoading value)? showLoading,
+    TResult Function(ShowMainScreen value)? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pure != null) {
       return pure(this);
     }
@@ -192,6 +188,7 @@ class _$ShowLoadingCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowLoading implements ShowLoading {
   const _$ShowLoading();
 
@@ -210,26 +207,22 @@ class _$ShowLoading implements ShowLoading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showLoading(),
-    @required TResult showMainScreen(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showLoading,
+    required TResult Function() showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return showLoading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showLoading(),
-    TResult showMainScreen(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showLoading,
+    TResult Function()? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showLoading != null) {
       return showLoading();
     }
@@ -238,26 +231,22 @@ class _$ShowLoading implements ShowLoading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(Pure value),
-    @required TResult showLoading(ShowLoading value),
-    @required TResult showMainScreen(ShowMainScreen value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Pure value) pure,
+    required TResult Function(ShowLoading value) showLoading,
+    required TResult Function(ShowMainScreen value) showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return showLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(Pure value),
-    TResult showLoading(ShowLoading value),
-    TResult showMainScreen(ShowMainScreen value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Pure value)? pure,
+    TResult Function(ShowLoading value)? showLoading,
+    TResult Function(ShowMainScreen value)? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showLoading != null) {
       return showLoading(this);
     }
@@ -288,6 +277,7 @@ class _$ShowMainScreenCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowMainScreen implements ShowMainScreen {
   const _$ShowMainScreen();
 
@@ -306,26 +296,22 @@ class _$ShowMainScreen implements ShowMainScreen {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showLoading(),
-    @required TResult showMainScreen(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showLoading,
+    required TResult Function() showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return showMainScreen();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showLoading(),
-    TResult showMainScreen(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showLoading,
+    TResult Function()? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showMainScreen != null) {
       return showMainScreen();
     }
@@ -334,26 +320,22 @@ class _$ShowMainScreen implements ShowMainScreen {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(Pure value),
-    @required TResult showLoading(ShowLoading value),
-    @required TResult showMainScreen(ShowMainScreen value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Pure value) pure,
+    required TResult Function(ShowLoading value) showLoading,
+    required TResult Function(ShowMainScreen value) showMainScreen,
   }) {
-    assert(pure != null);
-    assert(showLoading != null);
-    assert(showMainScreen != null);
     return showMainScreen(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(Pure value),
-    TResult showLoading(ShowLoading value),
-    TResult showMainScreen(ShowMainScreen value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Pure value)? pure,
+    TResult Function(ShowLoading value)? showLoading,
+    TResult Function(ShowMainScreen value)? showMainScreen,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showMainScreen != null) {
       return showMainScreen(this);
     }

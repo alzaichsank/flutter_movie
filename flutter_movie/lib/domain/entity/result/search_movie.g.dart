@@ -8,12 +8,12 @@ part of 'search_movie.dart';
 
 SearchMovie _$SearchMovieFromJson(Map<String, dynamic> json) {
   return SearchMovie(
-    id: json['id'] as int,
-    image: json['poster_path'] as String,
-    overview: json['overview'] as String,
-    releaseDate: json['release_date'] as String,
-    title: json['title'] as String,
-    voteAverage: (json['vote_average'] as num)?.toDouble(),
+    id: json['id'] as num?,
+    image: json['poster_path'] as String?,
+    overview: json['overview'] as String?,
+    releaseDate: json['release_date'] as String?,
+    title: json['title'] as String?,
+    voteAverage: (json['vote_average'] as num?)?.toDouble(),
   );
 }
 

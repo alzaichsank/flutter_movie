@@ -82,39 +82,39 @@ abstract class NetworkException with _$NetworkException {
               switch (serverCode) {
                 case 400:
                   networkExceptions = NetworkException.formValidationError(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 401:
                   networkExceptions = NetworkException.unauthorisedRequest(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 403:
                   networkExceptions = NetworkException.unauthorisedRequest(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 404:
                   networkExceptions = NetworkException.notFound(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 409:
                   networkExceptions = NetworkException.conflict(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 408:
                   networkExceptions = NetworkException.requestTimeout(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 500:
                   networkExceptions = NetworkException.internalServerError(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 case 503:
                   networkExceptions = NetworkException.serviceUnavailable(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
                   break;
                 default:
                   networkExceptions = NetworkException.defaultError(
-                      serverCode!, errorResponse.code, errorResponse.message);
+                      serverCode!, errorResponse.code ?? 0, errorResponse.message ?? "");
               }
               break;
             case DioErrorType.sendTimeout:
@@ -130,7 +130,7 @@ abstract class NetworkException with _$NetworkException {
           networkExceptions = NetworkException.unexpectedError();
         }
         return networkExceptions;
-      } on FormatException catch (e) {
+      } on FormatException {
         return NetworkException.formatException();
       } catch (_) {
         return NetworkException.unexpectedError();
@@ -139,7 +139,7 @@ abstract class NetworkException with _$NetworkException {
       if (error is NetworkException) {
         return NetworkException.noInternetConnection();
       } else if (error is ErrorResponse) {
-        return NetworkException.serverValidationError(error.message);
+        return NetworkException.serverValidationError(error.message ?? "");
       } else if (error is Response) {
         return NetworkException.serverValidationError(error.statusMessage!);
       } else if (error is DioError) {

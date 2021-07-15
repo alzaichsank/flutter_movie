@@ -57,7 +57,31 @@ class _MainBodyState extends State<_MainBody> {
         movie,
       );
     } else if (state.state is PureSearch) {
-      return Container();
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(ImageAssets.splash), fit: BoxFit.fill),
+              ),
+            ),
+            SizedBox(height: DimensionsManifest.UNIT_2.blockH),
+            Text(
+              "Search the movie",
+              textAlign: TextAlign.left,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStylesManifest.textFormFieldSemiBold.copyWith(
+                  color: HexColor.toColor(ColorManifest.HEADER_TEXT_COLOR),
+                  fontSize: DimensionsManifest.FONT_REGULAR_5),
+            )
+          ],
+        ),
+      );
     } else {
       return _buildLoadingState(
         totalWidth,

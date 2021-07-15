@@ -22,11 +22,11 @@ class SearchUseCase extends BaseUseCase<SearchQuery,
     final apiCall = await _networkRepository.searchMovie(
         query: params.keyword, page: params.currentPage);
     return apiCall.when(
-      success: (response) => ApiResult.success(
-          data: Pair(_searchMapper.transformActivityStore(response.data ?? []),
-              response.totalPages ?? 1)),
+      success: (response) => ApiResult.success(Pair(
+          _searchMapper.transformActivityStore(response.data ?? []),
+          response.totalPages ?? 1)),
       failure: (error) => ApiResult.failure(
-        error: NetworkException.getDioException(error),
+        NetworkException.getDioException(error),
       ),
     );
   }

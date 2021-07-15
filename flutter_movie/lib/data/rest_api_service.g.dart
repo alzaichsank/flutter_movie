@@ -8,16 +8,16 @@ part of 'rest_api_service.dart';
 
 class _RestApiService implements RestApiService {
   _RestApiService(this._dio, {this.baseUrl}) {
-    ArgumentError.checkNotNull(_dio, '_dio');
     baseUrl ??= 'http://api.themoviedb.org/3/';
   }
 
   final Dio _dio;
 
-  String baseUrl;
+  String? baseUrl;
 
   @override
   Future<ListResponse> searchMovie({apiKey, query, page}) async {
+    assert(apiKey != null);
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'api_key': apiKey,
@@ -26,15 +26,26 @@ class _RestApiService implements RestApiService {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('search/movie',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
-    final value = ListResponse.fromJson(_result.data);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ListResponse>(
+            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+                .compose(_dio.options, 'search/movie',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ListResponse.fromJson(_result.data!);
     return value;
+  }
+
+  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
   }
 }

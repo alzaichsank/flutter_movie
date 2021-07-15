@@ -6,9 +6,9 @@ import 'package:injectable/injectable.dart';
 @Singleton()
 class SearchMapper {
   List<Domain.SearchMovie> transformActivityStore(
-          List<SearchData> searchData) =>
+          List<SearchData>? searchData) =>
       searchData
-          .map(
+          ?.map(
             (SearchData searchData) => Domain.SearchMovie(
               id: searchData.id,
               image: BuildConfig.BASE_PATH_IMAGE +

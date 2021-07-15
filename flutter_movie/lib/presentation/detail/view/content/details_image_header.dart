@@ -21,6 +21,8 @@ class _ImageHeader extends StatelessWidget {
   }
 
   SizedBox _buildImage(BuildContext context, SearchMovie? item) {
+    final CacheManager customCacheManager =
+        CacheManager(Config('customCacheKey', stalePeriod: Duration(days: 31)));
     _content() => AspectRatio(
           aspectRatio: 1 / 2,
           child: LayoutBuilder(
@@ -30,31 +32,28 @@ class _ImageHeader extends StatelessWidget {
                   Positioned.fill(
                     top: 0,
                     child: ClipRRect(
-                      borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_20,
-                      child: TransitionToImage(
-                        width: constraints.maxWidth,
-                        height: constraints.maxHeight,
-                        fit: BoxFit.fill,
-                        loadingWidgetBuilder: (_, __, ___) => Center(
-                          child: DoubleBounceLoading(
-                            color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
-                          ),
-                        ),
-                        placeholder: Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          color:
-                              HexColor.toColor(ColorManifest.BACKGROUND_COLOR),
-                          child: const Icon(Icons.broken_image),
-                        ),
-                        image: AdvancedNetworkImage(
-                          item.image,
-                          useDiskCache: true,
-                          cacheRule:
-                              CacheRule(maxAge: const Duration(days: 31)),
-                        ),
-                      ),
-                    ),
+                        borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_20,
+                        child: CachedNetworkImage(
+                            imageUrl: item!.image ?? "http:/",
+                            placeholder: (context, url) => Container(
+                                  width: DimensionsManifest.UNIT_90,
+                                  height: DimensionsManifest.UNIT_90,
+                                  color: HexColor.toColor(
+                                      ColorManifest.BACKGROUND_COLOR),
+                                  child: const Icon(Icons.broken_image),
+                                ),
+                            width: DimensionsManifest.UNIT_90,
+                            height: DimensionsManifest.UNIT_90,
+                            fit: BoxFit.fill,
+                            progressIndicatorBuilder:
+                                (context, url, downloadProgress) {
+                              return Center(
+                                  child: DoubleBounceLoading(
+                                color: HexColor.toColor(
+                                    ColorManifest.BLUE_COLOR_2),
+                              ));
+                            },
+                            cacheManager: customCacheManager)),
                   ),
                 ],
               );

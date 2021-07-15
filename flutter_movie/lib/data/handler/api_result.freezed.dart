@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'api_result.dart';
 
@@ -9,53 +9,57 @@ part of 'api_result.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ApiResultTearOff {
   const _$ApiResultTearOff();
 
-// ignore: unused_element
-  Success<T> success<T>({required T data}) {
+  Success<T> success<T>(T data) {
     return Success<T>(
-      data: data,
+      data,
     );
   }
 
-// ignore: unused_element
-  Failure<T> failure<T>({required NetworkException error}) {
+  Failure<T> failure<T>(NetworkException error) {
     return Failure<T>(
-      error: error,
+      error,
     );
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ApiResult = _$ApiResultTearOff();
 
 /// @nodoc
 mixin _$ApiResult<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult failure(NetworkException error),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(NetworkException error) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult failure(NetworkException error),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(NetworkException error)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(Success<T> value),
-    @required TResult failure(Failure<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(Success<T> value),
-    TResult failure(Failure<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -92,17 +96,21 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object? data = freezed,
   }) {
     return _then(Success<T>(
-      data: data == freezed ? _value.data : data as T,
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
-  const _$Success({@required this.data}) : assert(data != null);
+  const _$Success(this.data);
 
   @override
   final T data;
@@ -139,23 +147,20 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult failure(NetworkException error),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(NetworkException error) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(data);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult failure(NetworkException error),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(NetworkException error)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(data);
     }
@@ -164,23 +169,20 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(Success<T> value),
-    @required TResult failure(Failure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(Success<T> value),
-    TResult failure(Failure<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }
@@ -189,11 +191,12 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
 }
 
 abstract class Success<T> implements ApiResult<T> {
-  const factory Success({@required T data}) = _$Success<T>;
+  const factory Success(T data) = _$Success<T>;
 
-  T get data;
+  T get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SuccessCopyWith<T, Success<T>> get copyWith;
+  $SuccessCopyWith<T, Success<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -216,18 +219,18 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(Failure<T>(
-      error: error == freezed ? _value.error : error as NetworkException,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as NetworkException,
     ));
   }
 
   @override
   $NetworkExceptionCopyWith<$Res> get error {
-    if (_value.error == null) {
-      return null;
-    }
     return $NetworkExceptionCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
     });
@@ -235,8 +238,9 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
-  const _$Failure({@required this.error}) : assert(error != null);
+  const _$Failure(this.error);
 
   @override
   final NetworkException error;
@@ -273,23 +277,20 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T data),
-    @required TResult failure(NetworkException error),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(NetworkException error) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(error);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T data),
-    TResult failure(NetworkException error),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(NetworkException error)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(error);
     }
@@ -298,23 +299,20 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(Success<T> value),
-    @required TResult failure(Failure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(Success<T> value),
-    TResult failure(Failure<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(this);
     }
@@ -323,9 +321,10 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
 }
 
 abstract class Failure<T> implements ApiResult<T> {
-  const factory Failure({@required NetworkException error}) = _$Failure<T>;
+  const factory Failure(NetworkException error) = _$Failure<T>;
 
-  NetworkException get error;
+  NetworkException get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FailureCopyWith<T, Failure<T>> get copyWith;
+  $FailureCopyWith<T, Failure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

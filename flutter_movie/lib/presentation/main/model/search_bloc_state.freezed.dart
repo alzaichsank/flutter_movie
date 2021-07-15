@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'search_bloc_state.dart';
 
@@ -9,94 +9,93 @@ part of 'search_bloc_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SearchBlocStateTearOff {
   const _$SearchBlocStateTearOff();
 
-// ignore: unused_element
   PureSearch pure() {
     return const PureSearch();
   }
 
-// ignore: unused_element
   ShowMoviesLoading showMoviesLoading() {
     return const ShowMoviesLoading();
   }
 
-// ignore: unused_element
   UpdateMovies updateMovies() {
     return const UpdateMovies();
   }
 
-// ignore: unused_element
   LoadMoreMovies loadMoreMovies() {
     return const LoadMoreMovies();
   }
 
-// ignore: unused_element
   FailedLoadMovies failedLoadMovies() {
     return const FailedLoadMovies();
   }
 
-// ignore: unused_element
   NoInternetError noInternetError() {
     return const NoInternetError();
   }
 
-// ignore: unused_element
   EmptyContent emptyContent() {
     return const EmptyContent();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SearchBlocState = _$SearchBlocStateTearOff();
 
 /// @nodoc
 mixin _$SearchBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -134,6 +133,7 @@ class _$PureSearchCopyWithImpl<$Res> extends _$SearchBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$PureSearch implements PureSearch {
   const _$PureSearch();
 
@@ -152,38 +152,30 @@ class _$PureSearch implements PureSearch {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return pure();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pure != null) {
       return pure();
     }
@@ -192,38 +184,30 @@ class _$PureSearch implements PureSearch {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return pure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pure != null) {
       return pure(this);
     }
@@ -255,6 +239,7 @@ class _$ShowMoviesLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ShowMoviesLoading implements ShowMoviesLoading {
   const _$ShowMoviesLoading();
 
@@ -273,38 +258,30 @@ class _$ShowMoviesLoading implements ShowMoviesLoading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return showMoviesLoading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showMoviesLoading != null) {
       return showMoviesLoading();
     }
@@ -313,38 +290,30 @@ class _$ShowMoviesLoading implements ShowMoviesLoading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return showMoviesLoading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showMoviesLoading != null) {
       return showMoviesLoading(this);
     }
@@ -376,6 +345,7 @@ class _$UpdateMoviesCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UpdateMovies implements UpdateMovies {
   const _$UpdateMovies();
 
@@ -394,38 +364,30 @@ class _$UpdateMovies implements UpdateMovies {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return updateMovies();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateMovies != null) {
       return updateMovies();
     }
@@ -434,38 +396,30 @@ class _$UpdateMovies implements UpdateMovies {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return updateMovies(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (updateMovies != null) {
       return updateMovies(this);
     }
@@ -497,6 +451,7 @@ class _$LoadMoreMoviesCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$LoadMoreMovies implements LoadMoreMovies {
   const _$LoadMoreMovies();
 
@@ -515,38 +470,30 @@ class _$LoadMoreMovies implements LoadMoreMovies {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return loadMoreMovies();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadMoreMovies != null) {
       return loadMoreMovies();
     }
@@ -555,38 +502,30 @@ class _$LoadMoreMovies implements LoadMoreMovies {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return loadMoreMovies(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadMoreMovies != null) {
       return loadMoreMovies(this);
     }
@@ -618,6 +557,7 @@ class _$FailedLoadMoviesCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$FailedLoadMovies implements FailedLoadMovies {
   const _$FailedLoadMovies();
 
@@ -636,38 +576,30 @@ class _$FailedLoadMovies implements FailedLoadMovies {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return failedLoadMovies();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failedLoadMovies != null) {
       return failedLoadMovies();
     }
@@ -676,38 +608,30 @@ class _$FailedLoadMovies implements FailedLoadMovies {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return failedLoadMovies(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failedLoadMovies != null) {
       return failedLoadMovies(this);
     }
@@ -739,6 +663,7 @@ class _$NoInternetErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$NoInternetError implements NoInternetError {
   const _$NoInternetError();
 
@@ -757,38 +682,30 @@ class _$NoInternetError implements NoInternetError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return noInternetError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noInternetError != null) {
       return noInternetError();
     }
@@ -797,38 +714,30 @@ class _$NoInternetError implements NoInternetError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return noInternetError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noInternetError != null) {
       return noInternetError(this);
     }
@@ -860,6 +769,7 @@ class _$EmptyContentCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$EmptyContent implements EmptyContent {
   const _$EmptyContent();
 
@@ -878,38 +788,30 @@ class _$EmptyContent implements EmptyContent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult pure(),
-    @required TResult showMoviesLoading(),
-    @required TResult updateMovies(),
-    @required TResult loadMoreMovies(),
-    @required TResult failedLoadMovies(),
-    @required TResult noInternetError(),
-    @required TResult emptyContent(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() pure,
+    required TResult Function() showMoviesLoading,
+    required TResult Function() updateMovies,
+    required TResult Function() loadMoreMovies,
+    required TResult Function() failedLoadMovies,
+    required TResult Function() noInternetError,
+    required TResult Function() emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return emptyContent();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pure(),
-    TResult showMoviesLoading(),
-    TResult updateMovies(),
-    TResult loadMoreMovies(),
-    TResult failedLoadMovies(),
-    TResult noInternetError(),
-    TResult emptyContent(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pure,
+    TResult Function()? showMoviesLoading,
+    TResult Function()? updateMovies,
+    TResult Function()? loadMoreMovies,
+    TResult Function()? failedLoadMovies,
+    TResult Function()? noInternetError,
+    TResult Function()? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emptyContent != null) {
       return emptyContent();
     }
@@ -918,38 +820,30 @@ class _$EmptyContent implements EmptyContent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pure(PureSearch value),
-    @required TResult showMoviesLoading(ShowMoviesLoading value),
-    @required TResult updateMovies(UpdateMovies value),
-    @required TResult loadMoreMovies(LoadMoreMovies value),
-    @required TResult failedLoadMovies(FailedLoadMovies value),
-    @required TResult noInternetError(NoInternetError value),
-    @required TResult emptyContent(EmptyContent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(PureSearch value) pure,
+    required TResult Function(ShowMoviesLoading value) showMoviesLoading,
+    required TResult Function(UpdateMovies value) updateMovies,
+    required TResult Function(LoadMoreMovies value) loadMoreMovies,
+    required TResult Function(FailedLoadMovies value) failedLoadMovies,
+    required TResult Function(NoInternetError value) noInternetError,
+    required TResult Function(EmptyContent value) emptyContent,
   }) {
-    assert(pure != null);
-    assert(showMoviesLoading != null);
-    assert(updateMovies != null);
-    assert(loadMoreMovies != null);
-    assert(failedLoadMovies != null);
-    assert(noInternetError != null);
-    assert(emptyContent != null);
     return emptyContent(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pure(PureSearch value),
-    TResult showMoviesLoading(ShowMoviesLoading value),
-    TResult updateMovies(UpdateMovies value),
-    TResult loadMoreMovies(LoadMoreMovies value),
-    TResult failedLoadMovies(FailedLoadMovies value),
-    TResult noInternetError(NoInternetError value),
-    TResult emptyContent(EmptyContent value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PureSearch value)? pure,
+    TResult Function(ShowMoviesLoading value)? showMoviesLoading,
+    TResult Function(UpdateMovies value)? updateMovies,
+    TResult Function(LoadMoreMovies value)? loadMoreMovies,
+    TResult Function(FailedLoadMovies value)? failedLoadMovies,
+    TResult Function(NoInternetError value)? noInternetError,
+    TResult Function(EmptyContent value)? emptyContent,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emptyContent != null) {
       return emptyContent(this);
     }

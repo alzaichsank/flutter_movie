@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_advanced_networkimage/provider.dart';
-import 'package:flutter_advanced_networkimage/transition.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_movie/commons/assets/assets.dart';
+
 import 'package:flutter_movie/commons/color/hex_color.dart';
 import 'package:flutter_movie/commons/manifest/error_manifest.dart';
 import 'package:flutter_movie/commons/manifest/shape_style_manifest.dart';
@@ -19,7 +21,6 @@ import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 import 'package:flutter_movie/presentation/common/view/background/background_stack.dart';
 import 'package:flutter_movie/presentation/common/view/hideable_glow_behavior.dart';
 import 'package:flutter_movie/presentation/common/view/loading.dart';
-import 'package:flutter_movie/presentation/common/widget/bottom_loader.dart';
 import 'package:flutter_movie/presentation/common/widget/icon_text.dart';
 import 'package:flutter_movie/presentation/common/widget/text_field.dart';
 import 'package:flutter_movie/presentation/common/widget/toolbar_holder.dart';
