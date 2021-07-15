@@ -17,7 +17,6 @@ class _RestApiService implements RestApiService {
 
   @override
   Future<ListResponse> searchMovie({apiKey, query, page}) async {
-    assert(apiKey != null);
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'api_key': apiKey,

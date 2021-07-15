@@ -58,9 +58,7 @@ class DioLogger extends Interceptor {
     if (requestHeader) {
       _printMapAsTable(options.queryParameters, header: 'Query Parameters');
       final requestHeaders = Map();
-      if (options.headers != null) {
-        requestHeaders.addAll(options.headers);
-      }
+      requestHeaders.addAll(options.headers);
       requestHeaders['contentType'] = options.contentType?.toString();
       requestHeaders['responseType'] = options.responseType.toString();
       requestHeaders['followRedirects'] = options.followRedirects;
@@ -255,9 +253,9 @@ class DioLogger extends Interceptor {
   }
 
   void _printMapAsTable(Map map, {String? header}) {
-    if (map == null || map.isEmpty) return;
+    if (map.isEmpty) return;
     logPrint('╔ $header ');
-    map.forEach((key, value) => _printKV(key, value));
+    map.forEach((key, value) => _printKV(key, value ?? "-"));
     _printLine('╚');
   }
 }

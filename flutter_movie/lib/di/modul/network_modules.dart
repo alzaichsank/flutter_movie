@@ -11,10 +11,8 @@ abstract class NetworkModule {
   RestApiService provideApiService(Dio dio) => RestApiService(dio);
 
   @LazySingleton()
-  Dio provideDio(
-      BaseOptions baseOptions,
-      @Named("build_mode") bool shouldShowLogger,
-      DioLogger dioLogger) {
+  Dio provideDio(BaseOptions baseOptions,
+      @Named("build_mode") bool shouldShowLogger, DioLogger dioLogger) {
     final dio = Dio(baseOptions);
     dio.interceptors.add(DioAuthenticator(dio));
     if (shouldShowLogger) {
@@ -40,11 +38,11 @@ abstract class NetworkModule {
           @Named("connect_time_out") int connectTimeOut,
           @Named("read_time_out") int readTimeOut) =>
       BaseOptions(
-        baseUrl: baseUrl,
-        headers: headers,
-        connectTimeout: connectTimeOut,
-        receiveTimeout: readTimeOut,
-      );
+          baseUrl: baseUrl,
+          headers: headers,
+          connectTimeout: connectTimeOut,
+          receiveTimeout: readTimeOut,
+          setRequestContentTypeWhenNoPayload: true);
 
   @Named("headers")
   Map<String, String> provideHeaders() => {"Accept": "application/json"};

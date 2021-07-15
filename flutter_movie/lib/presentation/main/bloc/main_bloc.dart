@@ -10,6 +10,7 @@ import 'package:flutter_movie/domain/entity/result/search_movie.dart';
 import 'package:flutter_movie/domain/usecase/search_usecase.dart';
 import 'package:flutter_movie/presentation/main/main.dart';
 import 'package:injectable/injectable.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'main_event.dart';
 
@@ -29,14 +30,20 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   bool _isLoadMore = false;
 
   @override
+  Stream<Transition<MainEvent, MainState>> transformEvents(
+      Stream<MainEvent> events, transitionFn) {
+    return events
+        .debounceTime(const Duration(milliseconds: 1000))
+        .switchMap((transitionFn));
+  }
+
+  @override
   Stream<MainState> mapEventToState(
     MainEvent event,
   ) async* {
     if (event is MainReady) {
       yield state.copyWith(state: SearchBlocState.pure());
     } else if (event is MainQueryChanged) {
-      _searchQuery = _searchQuery.copyWith(keyword: event.query);
-    } else if (event is MainSubmitted) {
       _isLoadMore = false;
       _page = 1;
       _searchQuery =
