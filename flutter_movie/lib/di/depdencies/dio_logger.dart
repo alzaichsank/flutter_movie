@@ -51,7 +51,7 @@ class DioLogger extends Interceptor {
 
   @override
   void onRequest(RequestOptions options,
-      RequestInterceptorHandler requestInterceptorHandler) async {
+      RequestInterceptorHandler requestInterceptorHandler) {
     if (request) {
       _printRequestHeader(options);
     }
@@ -80,11 +80,12 @@ class DioLogger extends Interceptor {
           _printBlock(data.toString());
       }
     }
+    _printBoxed(header: "Curl", text: dio2curl(options));
+    super.onRequest(options, requestInterceptorHandler);
   }
 
   @override
-  void onError(
-      DioError err, ErrorInterceptorHandler errorInterceptorHandler) async {
+  void onError(DioError err, ErrorInterceptorHandler errorInterceptorHandler) {
     if (error) {
       if (err.type == DioErrorType.response) {
         final uri = err.response!.realUri;
@@ -101,11 +102,12 @@ class DioLogger extends Interceptor {
       } else
         _printBoxed(header: 'DioError ║ ${err.type}', text: err.message);
     }
+    super.onError(err, errorInterceptorHandler);
   }
 
   @override
   void onResponse(Response response,
-      ResponseInterceptorHandler responseInterceptorHandler) async {
+      ResponseInterceptorHandler responseInterceptorHandler) {
     _printResponseHeader(response);
     if (responseHeader) {
       final responseHeaders = Map<String, String>();
@@ -121,6 +123,7 @@ class DioLogger extends Interceptor {
       logPrint('║');
       _printLine('╚');
     }
+    super.onResponse(response, responseInterceptorHandler);
   }
 
   void _printBoxed({String? header, String? text}) {
@@ -132,19 +135,20 @@ class DioLogger extends Interceptor {
 
   void _printResponse(Response response) {
     if (response.data != null) {
-      if (response.data is Map)
+      if (response.data is Map) {
         _printPrettyMap(response.data);
-      else if (response.data is List) {
+      } else if (response.data is List) {
         logPrint('║${_indent()}[');
         _printList(response.data);
         logPrint('║${_indent()}[');
-      } else
+      } else {
         _printBlock(response.data.toString());
+      }
     }
   }
 
   void _printResponseHeader(Response response) {
-    final uri = response.realUri;
+    final uri = response.requestOptions.uri;
     final method = response.requestOptions.method;
     _printBoxed(
         header:
@@ -183,52 +187,59 @@ class DioLogger extends Interceptor {
 
   String _indent([int tabCount = initialTab]) => tabStep * tabCount;
 
-  void _printPrettyMap(Map data,
-      {int tabs = initialTab, bool isListItem = false, bool isLast = false}) {
-    final bool isRoot = tabs == initialTab;
-    final initialIndent = _indent(tabs);
-    tabs++;
+  void _printPrettyMap(
+      Map data, {
+        int tabs = initialTab,
+        bool isListItem = false,
+        bool isLast = false,
+      }) {
+    var _tabs = tabs;
+    final isRoot = _tabs == initialTab;
+    final initialIndent = _indent(_tabs);
+    _tabs++;
 
     if (isRoot || isListItem) logPrint('║$initialIndent{');
 
-    data.keys.toList().asMap().forEach((index, key) {
+    data.keys.toList().asMap().forEach((index, dynamic key) {
       final isLast = index == data.length - 1;
-      var value = data[key];
-//      key = '\"$key\"';
-      if (value is String)
-        value = '\"${value.toString().replaceAll(RegExp(r'(\r|\n)+'), " ")}\"';
+      dynamic value = data[key];
+      if (value is String) {
+        value = '"${value.toString().replaceAll(RegExp(r'(\r|\n)+'), " ")}"';
+      }
       if (value is Map) {
-        if (compact && _canFlattenMap(value))
-          logPrint('║${_indent(tabs)} $key: $value${!isLast ? ',' : ''}');
-        else {
-          logPrint('║${_indent(tabs)} $key: {');
-          _printPrettyMap(value, tabs: tabs);
+        if (compact && _canFlattenMap(value)) {
+          logPrint('║${_indent(_tabs)} $key: $value${!isLast ? ',' : ''}');
+        } else {
+          logPrint('║${_indent(_tabs)} $key: {');
+          _printPrettyMap(value, tabs: _tabs);
         }
       } else if (value is List) {
-        if (compact && _canFlattenList(value))
-          logPrint('║${_indent(tabs)} $key: ${value.toString()}');
-        else {
-          logPrint('║${_indent(tabs)} $key: [');
-          _printList(value, tabs: tabs);
-          logPrint('║${_indent(tabs)} ]${isLast ? '' : ','}');
+        if (compact && _canFlattenList(value)) {
+          logPrint('║${_indent(_tabs)} $key: ${value.toString()}');
+        } else {
+          logPrint('║${_indent(_tabs)} $key: [');
+          _printList(value, tabs: _tabs);
+          logPrint('║${_indent(_tabs)} ]${isLast ? '' : ','}');
         }
       } else {
         final msg = value.toString().replaceAll('\n', '');
-        final indent = _indent(tabs);
+        final indent = _indent(_tabs);
         final linWidth = maxWidth - indent.length;
         if (msg.length + indent.length > linWidth) {
-          int lines = (msg.length / linWidth).ceil();
-          for (int i = 0; i < lines; ++i) {
+          final lines = (msg.length / linWidth).ceil();
+          for (var i = 0; i < lines; ++i) {
             logPrint(
-                '║${_indent(tabs)} ${msg.substring(i * linWidth, math.min<int>(i * linWidth + linWidth, msg.length))}');
+                '║${_indent(_tabs)} ${msg.substring(i * linWidth, math.min<int>(i * linWidth + linWidth, msg.length))}');
           }
-        } else
-          logPrint('║${_indent(tabs)} $key: $msg${!isLast ? ',' : ''}');
+        } else {
+          logPrint('║${_indent(_tabs)} $key: $msg${!isLast ? ',' : ''}');
+        }
       }
     });
 
     logPrint('║$initialIndent}${isListItem && !isLast ? ',' : ''}');
   }
+
 
   void _printList(List list, {int tabs = initialTab}) {
     list.asMap().forEach((i, e) {
@@ -257,5 +268,23 @@ class DioLogger extends Interceptor {
     logPrint('╔ $header ');
     map.forEach((key, value) => _printKV(key, value ?? "-"));
     _printLine('╚');
+  }
+
+  // A simple utility function to dump `curl` from "Dio" requests
+  String dio2curl(RequestOptions requestOption) {
+    var curl = '';
+    // Add PATH + REQUEST_METHOD
+    curl +=
+        'curl --request ${requestOption.method} \'${requestOption.baseUrl}${requestOption.path}\'';
+    // Include headers
+    for (var key in requestOption.headers.keys) {
+      curl += ' -H \'$key: ${requestOption.headers[key]}\'';
+    }
+    // Include data if there is data
+    if (requestOption.data != null) {
+      curl += ' --data-binary \'${requestOption.data}\'';
+    }
+    curl += ' --insecure'; //bypass https verification
+    return curl;
   }
 }
