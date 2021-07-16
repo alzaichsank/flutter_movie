@@ -90,26 +90,22 @@ LayoutBuilder _buildImagePreview(String image) {
   return LayoutBuilder(
     builder: (context, constraints) {
       return ClipRRect(
-        borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_16,
-        child: CachedNetworkImage(
-            imageUrl: image,
-            placeholder: (context, url) => Container(
+          borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_16,
+          child: CachedNetworkImage(
+              placeholder: (context, url) => Center(
+                      child: DoubleBounceLoading(
+                    color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
+                  )),
+              imageUrl: image,
+              width: DimensionsManifest.UNIT_90,
+              height: DimensionsManifest.UNIT_90,
+              fit: BoxFit.fill,
+              errorWidget: (context, url, error) => Container(
                   width: DimensionsManifest.UNIT_90,
                   height: DimensionsManifest.UNIT_90,
                   color: HexColor.toColor(ColorManifest.BACKGROUND_COLOR),
-                  child: const Icon(Icons.broken_image),
-                ),
-            width: DimensionsManifest.UNIT_90,
-            height: DimensionsManifest.UNIT_90,
-            fit: BoxFit.fill,
-            progressIndicatorBuilder: (context, url, downloadProgress) {
-              return Center(
-                  child: DoubleBounceLoading(
-                color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
-              ));
-            },
-            cacheManager: customCacheManager),
-      );
+                  child: const Icon(Icons.broken_image)),
+              cacheManager: customCacheManager));
     },
   );
 }

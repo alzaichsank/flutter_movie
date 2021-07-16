@@ -14,5 +14,5 @@ class DetailState extends Equatable {
   }
 
   @override
-  List<Object> get props => [state!, searchMovie!];
+  List<Object> get props => [state!, searchMovie ?? SearchMovie.empty()];
 }

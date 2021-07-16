@@ -70,7 +70,7 @@ BlocBuilder<DetailBloc, DetailState> _buildContainer() {
                     padding: EdgeInsets.symmetric(
                         horizontal: DimensionsManifest.UNIT_4.blockW),
                     child:
-                        Center(child: _ImageHeader(detail: state.searchMovie!)),
+                        Center(child: _ImageHeader(detail: state.searchMovie)),
                   ),
                   SizedBox(
                     height: DimensionsManifest.UNIT_2.blockH,

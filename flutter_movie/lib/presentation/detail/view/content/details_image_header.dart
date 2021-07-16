@@ -34,25 +34,19 @@ class _ImageHeader extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_20,
                         child: CachedNetworkImage(
-                            imageUrl: item!.image ?? "http:/",
-                            placeholder: (context, url) => Container(
-                                  width: DimensionsManifest.UNIT_90,
-                                  height: DimensionsManifest.UNIT_90,
-                                  color: HexColor.toColor(
-                                      ColorManifest.BACKGROUND_COLOR),
-                                  child: const Icon(Icons.broken_image),
-                                ),
+                            placeholder: (context, url) => Center(
+                                child: DoubleBounceLoading(
+                                  color: HexColor.toColor(ColorManifest.BLUE_COLOR_2),
+                                )),
+                            imageUrl: item?.image ?? "http:/",
+                            errorWidget: (context, url, error) => Container(
+                                width: DimensionsManifest.UNIT_90,
+                                height: DimensionsManifest.UNIT_90,
+                                color: HexColor.toColor(ColorManifest.BACKGROUND_COLOR),
+                                child: const Icon(Icons.broken_image)),
                             width: DimensionsManifest.UNIT_90,
                             height: DimensionsManifest.UNIT_90,
                             fit: BoxFit.fill,
-                            progressIndicatorBuilder:
-                                (context, url, downloadProgress) {
-                              return Center(
-                                  child: DoubleBounceLoading(
-                                color: HexColor.toColor(
-                                    ColorManifest.BLUE_COLOR_2),
-                              ));
-                            },
                             cacheManager: customCacheManager)),
                   ),
                 ],

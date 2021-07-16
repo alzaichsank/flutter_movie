@@ -44,12 +44,16 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     if (event is MainReady) {
       yield state.copyWith(state: SearchBlocState.pure());
     } else if (event is MainQueryChanged) {
-      _isLoadMore = false;
-      _page = 1;
-      _searchQuery =
-          _searchQuery.copyWith(keyword: event.query, currentPage: _page);
-      _events.clear();
-      yield* _mapEventToMainEvent();
+      if(event.query.length > 0) {
+        _isLoadMore = false;
+        _page = 1;
+        _searchQuery =
+            _searchQuery.copyWith(keyword: event.query, currentPage: _page);
+        _events.clear();
+        yield* _mapEventToMainEvent();
+      }else{
+        yield state.copyWith(state: SearchBlocState.pure());
+      }
     } else if (event is MainLoadMore) {
       yield* _mapEventToMainLoadMoreEvent();
     } else {

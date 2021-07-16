@@ -22,9 +22,11 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
   ) async* {
     if (event is DetailInit) {
       searchMovie = event.searchMovieData;
-      yield state.copyWith(
-          state: DetailBlocState.showDetailBlocScreen(),
-          searchMovie: searchMovie!);
+      if (searchMovie != null) {
+        yield state.copyWith(
+            state: DetailBlocState.showDetailBlocScreen(),
+            searchMovie: searchMovie);
+      }
     }
   }
 }
