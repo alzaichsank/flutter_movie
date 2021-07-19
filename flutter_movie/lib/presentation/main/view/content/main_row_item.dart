@@ -42,21 +42,18 @@ Widget _buildItemRow(
     ),
     child: ClipRRect(
       borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_25_ALL,
-      child: Container(
-        width: double.infinity,
-        height: DimensionsManifest.UNIT_30.h,
-        child: Material(
-          color: HexColor.toColor(ColorManifest.WHITE_COLOR),
-          child: InkWell(
-            onTap: () => Injector.locator<NavigationDispatcher>()
-                .goToDetail(context, item),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(child: _buildImage(item, context, state)),
-                Expanded(child: _buildDetail(item))
-              ],
-            ),
+      child: Material(
+        color: HexColor.toColor(ColorManifest.WHITE_COLOR),
+        child: InkWell(
+          onTap: () => Injector.locator<NavigationDispatcher>()
+              .goToDetail(context, item),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(child: _buildImage(item, context, state)),
+              Expanded(child: _buildDetail(item))
+            ],
           ),
         ),
       ),
