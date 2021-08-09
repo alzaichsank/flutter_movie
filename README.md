@@ -1,8 +1,8 @@
 # flutter_movie
 
 ## Preview
-1. <img src="https://github.com/alzaichsank/flutter_movie/blob/master/preview/list_movie.PNG" width=176/>&nbsp; 
-2. <img src="https://github.com/alzaichsank/flutter_movie/blob/master/preview/detail_movie.PNG" width=176/>&nbsp; 
+ <img src="https://github.com/alzaichsank/flutter_movie/blob/master/priview/list_movie.png" width=176/>&nbsp; 
+ <img src="https://github.com/alzaichsank/flutter_movie/blob/master/priview/detail_movie.png" width=176/>&nbsp; 
 
 Supported Devices
 
