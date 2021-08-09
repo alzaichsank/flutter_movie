@@ -30,55 +30,45 @@ Widget _buildItemRow(
 ) {
   final item = activities[index] as SearchMovie;
   return Container(
-    padding: EdgeInsets.only(
-      right: DimensionsManifest.UNIT_2.blockW,
-      left: DimensionsManifest.UNIT_2.blockW,
-      top: index == 0
-          ? DimensionsManifest.UNIT_2.blockH
-          : DimensionsManifest.UNIT_1.blockH,
-      bottom: index == activities.length - 1
-          ? DimensionsManifest.UNIT_1.blockH
-          : DimensionsManifest.UNIT_1.blockH,
-    ),
-    child: ClipRRect(
-      borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_25_ALL,
-      child: Material(
-        color: HexColor.toColor(ColorManifest.WHITE_COLOR),
-        child: InkWell(
-          onTap: () => Injector.locator<NavigationDispatcher>()
-              .goToDetail(context, item),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Flexible(child: _buildImage(item, context, state)),
-              Expanded(child: _buildDetail(item))
-            ],
-          ),
-        ),
+      padding: EdgeInsets.only(
+        right: DimensionsManifest.UNIT_2.blockW,
+        left: DimensionsManifest.UNIT_2.blockW,
+        top: index == 0
+            ? DimensionsManifest.UNIT_2.blockH
+            : DimensionsManifest.UNIT_1.blockH,
+        bottom: index == activities.length - 1
+            ? DimensionsManifest.UNIT_1.blockH
+            : DimensionsManifest.UNIT_1.blockH,
       ),
-    ),
-  );
-}
-
-Container _buildImage(
-  SearchMovie item,
-  BuildContext contextParent,
-  MainState state,
-) {
-  return Container(
-    margin: EdgeInsets.only(
-        left: DimensionsManifest.UNIT_24, top: DimensionsManifest.UNIT_30),
-    height: DimensionsManifest.UNIT_15.h,
-    child: AspectRatio(
-      aspectRatio: 1 / 1,
-      child: Stack(
+      child: Wrap(
         children: [
-          _buildImagePreview(item.image ?? ""),
+          Card(
+            elevation: DimensionsManifest.UNIT_6,
+            shadowColor: Colors.black12,
+            shape: RoundedRectangleBorder(
+              borderRadius: ShapeStylesManifest.RADIUS_CIRCULAR_15_ALL,
+            ),
+            color: HexColor.toColor(ColorManifest.WHITE_COLOR),
+            child: Padding(
+              padding: EdgeInsets.all(
+                DimensionsManifest.UNIT_10,
+              ),
+              child: InkWell(
+                onTap: () => Injector.locator<NavigationDispatcher>()
+                    .goToDetail(context, item),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildImagePreview(item.image ?? ""),
+                    _buildDetail(item)
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
-      ),
-    ),
-  );
+      ));
 }
 
 LayoutBuilder _buildImagePreview(String image) {
@@ -151,13 +141,11 @@ Widget _buildDetail(SearchMovie item) {
     );
   }
 
-  return Container(
-    margin: EdgeInsets.only(top: DimensionsManifest.UNIT_30),
+  return Flexible(
+      child: Container(
     padding: EdgeInsets.only(
       left: DimensionsManifest.UNIT_16,
     ),
-    width: double.infinity,
-    height: DimensionsManifest.UNIT_25.h,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -168,5 +156,5 @@ Widget _buildDetail(SearchMovie item) {
         _buildReleaseDate(),
       ],
     ),
-  );
+  ));
 }
