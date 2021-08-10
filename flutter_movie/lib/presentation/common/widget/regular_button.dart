@@ -7,23 +7,23 @@ import 'package:flutter_movie/commons/manifest/text_style_manifest.dart';
 
 import 'icon_text.dart';
 
-class RegularButton extends StatefulWidget {
+class RegularButton extends StatelessWidget {
   final Widget? icon;
   final String? title;
-  final double?  fontSize;
+  final double? fontSize;
   final Color? buttonTextColor;
   final GestureTapCallback? onPressed;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final Color? color;
   final BorderRadius? styleRadius;
-  final bool?  enabled;
-  final double?  height;
-  final double?  width;
-  final bool?  useIconOnly;
-  final double?  elevation;
+  final bool? enabled;
+  final double? height;
+  final double? width;
+  final bool? useIconOnly;
+  final double? elevation;
   final Alignment? textOnlyAlign;
-  final bool?  useShadow;
+  final bool? useShadow;
   final Gradient? gradient;
 
   const RegularButton({
@@ -50,18 +50,13 @@ class RegularButton extends StatefulWidget {
         super(key: key);
 
   @override
-  _RegularButtonState createState() => _RegularButtonState();
-}
-
-class _RegularButtonState extends State<RegularButton> {
-  @override
   Widget build(BuildContext context) {
     return _buildButton();
   }
 
   _buildButton() {
     var shadow = <BoxShadow>[];
-    if (widget.useShadow!) {
+    if (useShadow!) {
       shadow.add(
         BoxShadow(
           color: HexColor.toColor(ColorManifest.BLACK_COLOR).withOpacity(0.05),
@@ -72,37 +67,37 @@ class _RegularButtonState extends State<RegularButton> {
       );
     }
     return Container(
-      width: widget.width,
-      height: widget.height,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
-          borderRadius: widget.styleRadius,
+          borderRadius: styleRadius,
           boxShadow: shadow,
-          gradient: widget.gradient),
+          gradient: gradient),
       child: ClipRRect(
-        borderRadius: widget.styleRadius,
+        borderRadius: styleRadius,
         child: Material(
           elevation: 0,
-          color: widget.color ?? HexColor.toColor(ColorManifest.WHITE_COLOR),
+          color: color ?? HexColor.toColor(ColorManifest.WHITE_COLOR),
           child: InkWell(
             splashColor: HexColor.toDarker(
-                widget.color ?? HexColor.toColor(ColorManifest.WHITE_COLOR)),
-            onTap: () => widget.onPressed!(),
+                color ?? HexColor.toColor(ColorManifest.WHITE_COLOR)),
+            onTap: () => onPressed!(),
             child: Center(
               child: Container(
-                width: widget.width,
-                height: widget.height,
-                padding: widget.padding ??
+                width: width,
+                height: height,
+                padding: padding ??
                     EdgeInsets.all(DimensionsManifest.UNIT_14),
-                margin: widget.margin != null ? widget.margin : null,
-                child: widget.useIconOnly!
+                margin: margin != null ? margin : null,
+                child: useIconOnly!
                     ? _buildIcon()
-                    : (widget.icon != null
+                    : (icon != null
                         ? _buildTextIcon()
                         : Center(
                             child: _buildText(),
                           )),
                 decoration: BoxDecoration(
-                  borderRadius: widget.styleRadius,
+                  borderRadius: styleRadius,
                   boxShadow: ShapeStylesManifest.BUTTON_SHADOW,
                 ),
               ),
@@ -115,18 +110,18 @@ class _RegularButtonState extends State<RegularButton> {
 
   _buildIcon() {
     return Center(
-      child: widget.icon,
+      child: icon,
     );
   }
 
   _buildText() {
     return Container(
-      alignment: widget.textOnlyAlign ?? Alignment.center,
+      alignment: textOnlyAlign ?? Alignment.center,
       child: Text(
-        widget.title!,
+        title!,
         style: TextStylesManifest.textFormFieldMedium.copyWith(
-          fontSize: widget.fontSize,
-          color: widget.buttonTextColor ??
+          fontSize: fontSize,
+          color: buttonTextColor ??
               HexColor.toColor(ColorManifest.BUTTON_FONT_COLOR),
         ),
       ),
@@ -135,9 +130,9 @@ class _RegularButtonState extends State<RegularButton> {
 
   _buildTextIcon() {
     return IconText(
-      fontSize: widget.fontSize,
-      buttonText: widget.title,
-      buttonTextColor: widget.buttonTextColor,
+      fontSize: fontSize,
+      buttonText: title,
+      buttonTextColor: buttonTextColor,
       leftIcon: _buildIcon(),
     );
   }

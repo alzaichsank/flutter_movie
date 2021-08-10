@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie/commons/manifest/color_manifest.dart';
 import 'package:flutter_movie/commons/color/hex_color.dart';
+import 'package:flutter_movie/commons/manifest/color_manifest.dart';
 import 'package:flutter_movie/commons/sizer/size_config.dart';
 import 'package:flutter_movie/di/injector.dart';
 
 import '../splash.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   SplashPage({
     Key? key,
   }) : super(key: key);
 
-  @override
-  _SplashPageState createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {

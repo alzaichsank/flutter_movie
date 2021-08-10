@@ -14,18 +14,18 @@ class RestartWidget extends StatefulWidget {
 }
 
 class _RestartWidgetState extends State<RestartWidget> {
-  Key key = UniqueKey();
+  Key _key = UniqueKey();
 
   void restartApp() {
     setState(() {
-      key = UniqueKey();
+      _key = UniqueKey();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return KeyedSubtree(
-      key: key,
+      key: _key,
       child: widget.child!
     );
   }

@@ -6,14 +6,9 @@ import 'package:flutter_movie/di/injector.dart';
 import 'package:flutter_movie/presentation/main/main.dart';
 
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   MainPage({Key? key}) : super(key: key);
 
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
